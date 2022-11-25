@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('impresoras', function (Blueprint $table) {
             $table->id();
             $table->String('modelo');
-            $table->foreignId('impresora_id')->constrained('impresoras')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('marca_id')->constrained('marcas')->onUpdate('cascade')->onDelete('cascade');
             $table->enum('Conexion',['USB', 'RED']);
             $table->timestamps();
         });
