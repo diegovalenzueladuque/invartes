@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->String('anexo');                        
             $table->foreignId('marca_id')->constrained('marcas')->onUpdate('cascade')->onDelete('cascade');           
-            $table->String('modelo')->nullable;
+            $table->String('modelo')->nullable();
             $table->enum('tipo',['ANÁLOGO', 'IP']);
             $table->String('macaddress')->nullable();
             $table->String('ip')->nullable();
