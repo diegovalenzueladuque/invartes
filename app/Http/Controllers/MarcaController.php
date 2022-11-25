@@ -25,7 +25,7 @@ class MarcaController extends Controller
      */
     public function create()
     {
-        return view('marcas.create');
+        return view('marcas.create')->with('marcas');
     }
 
     /**
