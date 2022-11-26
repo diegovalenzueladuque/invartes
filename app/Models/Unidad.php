@@ -7,13 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Unidad extends Model
 {
+    use HasFactory;
     protected $fillable = ['nombre', 'oficina_id', 'sede_id' ];
 
     public function oficinas(){
 
-        return $this->hasMany(Oficina::class);
+        return $this->hasMany(Oficina::class, 'id');
     }
     public function sedes(){
-        return $this->hasMany(Sede::class);
+        return $this->hasMany(Sede::class, 'id');
     }
 }

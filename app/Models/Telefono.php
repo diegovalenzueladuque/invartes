@@ -7,9 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Telefono extends Model
 {
+    use HasFactory;
     protected $fillable = ['anexo', 'marca_id', 'modelo', 'tipo', 'macaddress', 'ip'];
 
     public function Marca(){
-        return $this->hasMany(Marca::class);
+        return $this->hasMany(Marca::class, 'id');
     }
 }

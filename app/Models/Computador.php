@@ -7,20 +7,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Computador extends Model
 {
+    use HasFactory;
     protected $fillable = ['codigo', 'marca_id', 'detalle_id', 'funcionario_id', 'telefono_id'];
 
     public function Marca(){
-        return $this->hasMany(Marca::class);
+        return $this->hasMany(Marca::class, 'id');
     }
 
     public function Detalle(){
-        return $this->hasMany(Detalle::class);
+        return $this->hasMany(Detalle::class, 'id');
     }
 
     public function Funcionario(){
-        return $this->hasMany(Funcionario::class);
+        return $this->hasMany(Funcionario::class, 'id');
     }
     public function Telefono(){
-        return $this->hasMany(Telefono::class);
+        return $this->hasMany(Telefono::class, 'id');
     }
 }
