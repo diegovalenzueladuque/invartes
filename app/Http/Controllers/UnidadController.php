@@ -14,7 +14,8 @@ class UnidadController extends Controller
      */
     public function index()
     {
-        //
+        $unidades = Unidad::all();
+        return view('unidades.index')->with('unidades', $unidades);
     }
 
     /**
@@ -24,7 +25,7 @@ class UnidadController extends Controller
      */
     public function create()
     {
-        //
+        return view('unidades.create');
     }
 
     /**
