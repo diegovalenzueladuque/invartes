@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Marca;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class MarcaController extends Controller
 {
@@ -36,6 +37,10 @@ class MarcaController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'nombre' => 'required',
+
+        ]);
         $marcas = new Marca();
         $marcas->nombre = $request->get('nombre');
         

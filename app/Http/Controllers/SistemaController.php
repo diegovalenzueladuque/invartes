@@ -36,6 +36,10 @@ class SistemaController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'nombre' => 'required',
+
+        ]);
         $sistemas = new Sistema();
         $sistemas->nombre = $request->get('nombre');
         

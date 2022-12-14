@@ -10,6 +10,6 @@ class Sede extends Model
     use HasFactory;
 
     public function Unidad(){
-        return $this->belongsTo(Unidad::class, 'id');
+        return $this->belongsTo(Unidad::class, 'unidad_id');
     }
 }

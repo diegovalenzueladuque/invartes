@@ -37,6 +37,11 @@ class RolController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'nombre' => 'required',
+
+        ]);
+
         $rols = new Rol();
         $rols->nombre = $request->get('nombre');
         

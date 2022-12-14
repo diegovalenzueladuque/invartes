@@ -37,6 +37,10 @@ class OficinaController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'nombre' => 'required',
+
+        ]);
         $oficina = new Oficina();
         $oficina->nombre = $request->get('nombre');
         
