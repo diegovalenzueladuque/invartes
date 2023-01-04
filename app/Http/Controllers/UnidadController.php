@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Oficina;
 use App\Models\Unidad;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,8 @@ class UnidadController extends Controller
      */
     public function create()
     {
-        return view('unidades.create');
+        $oficinas = Oficina::all();
+        return view('unidades.create', compact('oficinas'));
     }
 
     /**

@@ -26,6 +26,7 @@
                 <tr>
                     <td>{{ $unidad->id }}</td>
                     <td>{{ $unidad->nombre }}</td>
+                    <td>{{ $unidad->oficina->nombre }}</td>
                     <td>{{ $unidad->sede->nombre }}</td>
                     <td>
                         <form action="{{ route('unidades.destroy', $sede->id) }}" method="POST">

@@ -14,7 +14,14 @@
         <label for="" class="form-label">Nombre</label>
         <input class="form-control" type="text" name="nombre" id="nombre"><br>
         <label for="" class="form-label">Oficina</label>
+        <select class="form-control" name="oficina_id" id="oficina_id"><br>
+            @foreach ($oficinas as $oficina)
+            <option value="{{ $oficina['id'] }}">{{ $oficina['nombre'] }}</option>
+                
+            @endforeach
+        </select>
         <input class="form-control" type="text" name="oficina_id" id="oficina_id"><br>
+        
         <label for="" class="form-label">Sede</label>
         <input class="form-control" type="text" name="sede_id" id="sede_id"><br>
         <a href="{{ route('unidades.index') }}" class="btn btn-outline-warning">CANCELAR</a>
