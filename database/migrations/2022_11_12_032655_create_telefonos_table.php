@@ -21,6 +21,7 @@ return new class extends Migration
             $table->enum('tipo',['ANÁLOGO', 'IP']);
             $table->String('macaddress')->nullable();
             $table->String('ip')->nullable();
+            $table->String('serie');
             $table->timestamps();
         });
     }

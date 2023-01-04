@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('computadors', function (Blueprint $table) {
             $table->id();
-            $table->String('codigo');           
+            $table->String('codigo');  
+            $table->String('serie');         
             $table->foreignId('marca_id')->constrained('marcas')->onUpdate('cascade')->onDelete('cascade');            
             $table->foreignId('detalle_id')->constrained('detalles')->onUpdate('cascade')->onDelete('cascade');            
             $table->foreignId('funcionario_id')->constrained('funcionarios')->onUpdate('cascade')->onDelete('cascade');     

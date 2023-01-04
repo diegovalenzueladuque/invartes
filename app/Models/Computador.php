@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Computador extends Model
 {
     use HasFactory;
-    protected $fillable = ['codigo', 'marca_id', 'detalle_id', 'funcionario_id', 'telefono_id'];
+    protected $fillable = ['codigo', 'serie', 'marca_id', 'detalle_id', 'funcionario_id', 'telefono_id'];
 
     public function Marca(){
         return $this->hasMany(Marca::class, 'id');

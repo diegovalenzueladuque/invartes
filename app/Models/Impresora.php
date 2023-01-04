@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Impresora extends Model
 {
     use HasFactory;
-    protected $fillable = ['modelo', 'marca_id', 'Conexion'];
+    protected $fillable = ['modelo', 'serie', 'marca_id', 'Conexion'];
 
     public function Marca(){
         return $this->hasMany(Marca::class, 'id');
