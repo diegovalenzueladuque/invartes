@@ -14,16 +14,24 @@
         <label for="" class="form-label">Nombre</label>
         <input class="form-control" type="text" name="nombre" id="nombre"><br>
         <label for="" class="form-label">Oficina</label>
-        <select class="form-control" name="oficina_id" id="oficina_id"><br>
+        <select class="form-control" name="oficina_id" id="oficina_id">
+            <option value="">Seleccione una opción</option>
             @foreach ($oficinas as $oficina)
             <option value="{{ $oficina['id'] }}">{{ $oficina['nombre'] }}</option>
                 
             @endforeach
-        </select>
-        <input class="form-control" type="text" name="oficina_id" id="oficina_id"><br>
+        </select><br>
+        
         
         <label for="" class="form-label">Sede</label>
-        <input class="form-control" type="text" name="sede_id" id="sede_id"><br>
+        <select class="form-control" name="sede_id" id="sede_id">
+            <option value="">Seleccione una opción</option>
+            @foreach ($sedes as $sede)
+            <option value="{{ $sede['id'] }}">{{ $sede['nombre'] }}</option>
+                
+            @endforeach
+        </select><br>
+        
         <a href="{{ route('unidades.index') }}" class="btn btn-outline-warning">CANCELAR</a>
         <button class="btn btn-outline-success" type="submit">CREAR</button>
         
