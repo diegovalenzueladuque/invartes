@@ -17,7 +17,9 @@ class UnidadController extends Controller
     public function index()
     {
         $unidades = Unidad::all();
-        return view('unidades.index')->with('unidades', $unidades);
+        $oficinas = Oficina::with('unidad')->get();
+        $sedes = Sede::with('unidad')->get();
+        return view('unidades.index', compact('unidades'));
     }
 
     /**
@@ -40,7 +42,20 @@ class UnidadController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'nombre' => 'required',
+            'oficina_id' => 'required',
+            'sede_id' => 'required',
+
+        ]);
+        $unidad = new Unidad();
+        $unidad->nombre = $request->get('nombre');
+        $unidad->oficina_id = $request->get('oficina_id');
+        $unidad->sede_id = $request->get('sede_id');
+        
+        $unidad->save();
+
+        return redirect('/unidades')->with('success','Unidad creada');
     }
 
     /**

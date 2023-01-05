@@ -9,7 +9,7 @@ class Sede extends Model
 {
     use HasFactory;
 
-    public function Unidad(){
-        return $this->belongsTo(Unidad::class, 'unidad_id');
+    public function unidad(){
+        return $this->belongsTo(Unidad::class);
     }
 }

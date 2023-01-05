@@ -9,7 +9,7 @@ class Oficina extends Model
 {
     use HasFactory;
 
-    public function Unidad(){
+    public function unidad(){
         return $this->belongsTo(Unidad::class, 'id');
     }
 }

@@ -26,13 +26,15 @@
                 <tr>
                     <td>{{ $unidad->id }}</td>
                     <td>{{ $unidad->nombre }}</td>
-                    <td>{{ $unidad->oficina->nombre }}</td>
-                    <td>{{ $unidad->sede->nombre }}</td>
+                    <td>{{ $unidad->oficinas->nombre }}</td> 
+                    <td >{{ $unidad->sedes->nombre }}</td>   
+                    
+                    
                     <td>
-                        <form action="{{ route('unidades.destroy', $sede->id) }}" method="POST">
+                        <form action="{{ route('unidades.destroy', $unidad->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <i class="fas fa-pen"></i>&nbsp;<a href="/unidades/{{ $sede->id }}/edit" class="btn btn-outline-info">EDITAR</a>&nbsp;&nbsp;
+                            <i class="fas fa-pen"></i>&nbsp;<a href="/unidades/{{ $unidad->id }}/edit" class="btn btn-outline-info">EDITAR</a>&nbsp;&nbsp;
                             
                             
                             <i class="fas fa-trash"></i>&nbsp;<button type="submit" class="btn btn-outline-danger">ELIMINAR</button>

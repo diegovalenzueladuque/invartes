@@ -12,9 +12,9 @@ class Unidad extends Model
 
     public function oficinas(){
 
-        return $this->hasMany(Oficina::class, 'id');
+        return $this->hasMany(Oficina::class, 'id','id', );
     }
     public function sedes(){
-        return $this->hasMany(Sede::class, 'id');
+        return $this->hasMany(Sede::class);
     }
 }
