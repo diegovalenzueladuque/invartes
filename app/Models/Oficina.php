@@ -9,7 +9,9 @@ class Oficina extends Model
 {
     use HasFactory;
 
-    public function unidad(){
-        return $this->belongsTo(Unidad::class, 'id');
+    protected $fillable = ['nombre'];
+
+    public function unidades(){
+        return $this->hasMany(Unidad::class, 'id');
     }
 }

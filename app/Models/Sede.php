@@ -9,7 +9,9 @@ class Sede extends Model
 {
     use HasFactory;
 
-    public function unidad(){
-        return $this->belongsTo(Unidad::class);
+    protected $fillable = ['nombre', 'direccion'];
+
+    public function unidades(){
+        return $this->hasMany(Unidad::class);
     }
 }

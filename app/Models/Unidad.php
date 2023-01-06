@@ -10,11 +10,11 @@ class Unidad extends Model
     use HasFactory;
     protected $fillable = ['nombre', 'oficina_id', 'sede_id' ];
 
-    public function oficinas(){
+    public function oficina(){
 
-        return $this->hasMany(Oficina::class, 'id','id', );
+        return $this->belongsTo(Oficina::class);
     }
-    public function sedes(){
-        return $this->hasMany(Sede::class);
+    public function sede(){
+        return $this->belongsTo(Sede::class);
     }
 }

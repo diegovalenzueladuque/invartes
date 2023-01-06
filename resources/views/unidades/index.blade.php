@@ -26,8 +26,8 @@
                 <tr>
                     <td>{{ $unidad->id }}</td>
                     <td>{{ $unidad->nombre }}</td>
-                    <td>{{ $unidad->oficinas->nombre }}</td> 
-                    <td >{{ $unidad->sedes->nombre }}</td>   
+                    <td>{{ $unidad->oficina->nombre }}</td> 
+                    <td >{{ $unidad->sede->nombre }}</td>   
                     
                     
                     <td>

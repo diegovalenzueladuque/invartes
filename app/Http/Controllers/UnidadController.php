@@ -16,9 +16,7 @@ class UnidadController extends Controller
      */
     public function index()
     {
-        $unidades = Unidad::all();
-        $oficinas = Oficina::with('unidad')->get();
-        $sedes = Sede::with('unidad')->get();
+        $unidades = Unidad::with(['oficina','sede'])->get();
         return view('unidades.index', compact('unidades'));
     }
 
