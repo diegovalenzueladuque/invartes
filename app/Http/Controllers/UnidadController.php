@@ -96,8 +96,12 @@ class UnidadController extends Controller
      * @param  \App\Models\Unidad  $unidad
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Unidad $unidad)
+    public function destroy($id)
     {
-        //
+        $unidad = Unidad::find($id);
+        $unidad->delete();
+
+        return redirect('/unidades')->with('success', 'Unidad Eliminada');
     }
 }
+
