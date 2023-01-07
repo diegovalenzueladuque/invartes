@@ -73,9 +73,12 @@ class UnidadController extends Controller
      * @param  \App\Models\Unidad  $unidad
      * @return \Illuminate\Http\Response
      */
-    public function edit(Unidad $unidad)
+    public function edit($id)
     {
-        //
+        $unidades = Unidad::findorFail($id);
+        $oficinas = Oficina::all();
+        $sedes = Sede::all();
+        return view('unidades.edit', compact('unidades', 'oficinas', 'sedes'));
     }
 
     /**
@@ -85,9 +88,16 @@ class UnidadController extends Controller
      * @param  \App\Models\Unidad  $unidad
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Unidad $unidad)
+    public function update(Request $request, $id)
     {
-        //
+        $unidad = Unidad::findorFail($id);
+        $unidad->nombre = $request->input('nombre');;
+        $unidad->oficina_id = $request->input('oficina_id');;
+        $unidad->sede_id = $request->input('sede_id');;
+        
+        $unidad->save();
+
+        return redirect('/unidades')->with('success','Unidad creada');
     }
 
     /**
@@ -104,4 +114,5 @@ class UnidadController extends Controller
         return redirect('/unidades')->with('success', 'Unidad Eliminada');
     }
 }
+
 
