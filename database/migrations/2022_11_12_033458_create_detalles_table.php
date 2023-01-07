@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->String('cpu');
             $table->String('ram');           
-            $table->foreignId('sistema_id')->constrained('sistemas')->onUpdate('cascade')->onDelete('cascade');            
+            $table->foreignId('sistema_id')->constrained('sistemas')->onUpdate('cascade')->nullOnDelete();            
             $table->String('macaddress');
             $table->String('ip');            
-            $table->foreignId('impresora_id')->constrained('impresoras')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('impresora_id')->constrained('impresoras')->onUpdate('cascade')->nullOnDelete();
             $table->timestamps();
         });
     }

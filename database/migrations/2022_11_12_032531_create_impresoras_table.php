@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->String('modelo');
             $table->String('serie');
-            $table->foreignId('marca_id')->constrained('marcas')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('marca_id')->constrained('marcas')->onUpdate('cascade')->nullOnDelete();
             $table->enum('Conexion',['USB', 'RED']);
             $table->timestamps();
         });

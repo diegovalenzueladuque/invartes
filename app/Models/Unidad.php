@@ -17,4 +17,8 @@ class Unidad extends Model
     public function sede(){
         return $this->belongsTo(Sede::class);
     }
+
+    public function funcionarios(){
+        return $this->hasMany(Funcionario::class);
+    }
 }
