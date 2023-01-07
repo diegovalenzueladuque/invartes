@@ -16,7 +16,7 @@ class UnidadController extends Controller
      */
     public function index()
     {
-        $unidades = Unidad::with(['oficina','sede'])->get();
+        $unidades = Unidad::with(['sede'])->get();
         return view('unidades.index', compact('unidades'));
     }
 
@@ -27,9 +27,9 @@ class UnidadController extends Controller
      */
     public function create()
     {
-        $oficinas = Oficina::all();
+        
         $sedes = Sede::all();
-        return view('unidades.create', compact('oficinas','sedes'));
+        return view('unidades.create', compact('sedes'));
     }
 
     /**
@@ -42,13 +42,13 @@ class UnidadController extends Controller
     {
         $validated = $request->validate([
             'nombre' => 'required',
-            'oficina_id' => 'required',
+            
             'sede_id' => 'required',
 
         ]);
         $unidad = new Unidad();
         $unidad->nombre = $request->get('nombre');
-        $unidad->oficina_id = $request->get('oficina_id');
+        
         $unidad->sede_id = $request->get('sede_id');
         
         $unidad->save();
@@ -76,9 +76,9 @@ class UnidadController extends Controller
     public function edit($id)
     {
         $unidades = Unidad::findorFail($id);
-        $oficinas = Oficina::all();
+        
         $sedes = Sede::all();
-        return view('unidades.edit', compact('unidades', 'oficinas', 'sedes'));
+        return view('unidades.edit', compact('unidades', 'sedes'));
     }
 
     /**
@@ -91,9 +91,9 @@ class UnidadController extends Controller
     public function update(Request $request, $id)
     {
         $unidad = Unidad::findorFail($id);
-        $unidad->nombre = $request->input('nombre');;
-        $unidad->oficina_id = $request->input('oficina_id');;
-        $unidad->sede_id = $request->input('sede_id');;
+        $unidad->nombre = $request->input('nombre');
+        
+        $unidad->sede_id = $request->input('sede_id');
         
         $unidad->save();
 

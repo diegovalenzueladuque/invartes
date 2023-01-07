@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Ingreso Funcionarios')
+@section('title', 'Crear Sistemas')
 
 @section('content_header')
 

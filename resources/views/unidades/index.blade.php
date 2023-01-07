@@ -15,7 +15,7 @@
           <tr>
             <th scope="col">Id</th>
             <th scope="col">Nombre</th>
-            <th scope="col">Oficina</th>
+            
             <th scope="col">Sede</th>
            
           </tr>
@@ -26,7 +26,7 @@
                 <tr>
                     <td>{{ $unidad->id }}</td>
                     <td>{{ $unidad->nombre }}</td>
-                    <td>{{ $unidad->oficina->nombre }}</td> 
+                    
                     <td >{{ $unidad->sede->nombre }}</td>   
                     
                     

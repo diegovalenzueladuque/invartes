@@ -13,14 +13,7 @@
         @csrf
         <label for="" class="form-label">Nombre</label>
         <input class="form-control" type="text" name="nombre" id="nombre"><br>
-        <label for="" class="form-label">Oficina</label>
-        <select class="form-control" name="oficina_id" id="oficina_id">
-            <option value="">Seleccione una opción</option>
-            @foreach ($oficinas as $oficina)
-            <option value="{{ $oficina['id'] }}">{{ $oficina['nombre'] }}</option>
-                
-            @endforeach
-        </select><br>
+       
         
         
         <label for="" class="form-label">Sede</label>

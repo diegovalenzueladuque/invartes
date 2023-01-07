@@ -15,7 +15,9 @@
           <tr>
             <th scope="col">Id</th>
             <th scope="col">Nombre</th>
-            
+            <th scope="col">Unidad</th>
+            <th scope="col">Sede</th>
+                    
            
           </tr>
         </thead>
@@ -25,7 +27,8 @@
                 <tr>
                     <td>{{ $oficina->id }}</td>
                     <td>{{ $oficina->nombre }}</td>
-                    
+                    <td>{{ $oficina->unidad->nombre }}</td>
+                    <td>{{ $oficina->sede->nombre }}</td>
                     <td>
                         <form action="{{ route('oficinas.destroy', $oficina->id) }}" method="POST">
                             @csrf

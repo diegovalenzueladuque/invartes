@@ -8,11 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Unidad extends Model
 {
     use HasFactory;
-    protected $fillable = ['nombre', 'oficina_id', 'sede_id' ];
+    protected $fillable = ['nombre', 'sede_id' ];
 
-    public function oficina(){
+    public function oficinas(){
 
-        return $this->belongsTo(Oficina::class);
+        return $this->hasMany(Oficina::class);
     }
     public function sede(){
         return $this->belongsTo(Sede::class);

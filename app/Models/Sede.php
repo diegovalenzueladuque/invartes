@@ -14,4 +14,7 @@ class Sede extends Model
     public function unidades(){
         return $this->hasMany(Unidad::class);
     }
+    public function oficinas(){
+        return $this->hasMany(Oficina::class);
+    }
 }

@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::create('oficinas', function (Blueprint $table) {
             $table->id();
             $table->String('nombre');
+            $table->foreignId('unidad_id')->constrained('unidads')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('sede_id')->constrained('sedes')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

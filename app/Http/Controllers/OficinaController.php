@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Oficina;
+use App\Models\Sede;
+use App\Models\Unidad;
 use Illuminate\Http\Request;
 
 class OficinaController extends Controller
@@ -15,7 +17,7 @@ class OficinaController extends Controller
      */
     public function index()
     {
-        $oficina = Oficina::all();
+        $oficina = Oficina::with('unidad', 'sede');
        return view('oficinas.index')->with('oficinas', $oficina);
     }
 
@@ -26,7 +28,9 @@ class OficinaController extends Controller
      */
     public function create()
     {
-        return view('oficinas.create')->with('oficinas');
+        $unidades = Unidad::all();
+        $sedes = Sede::all();
+        return view('oficinas.create', compact('unidades', 'sedes'));
     }
 
     /**
@@ -43,7 +47,8 @@ class OficinaController extends Controller
         ]);
         $oficina = new Oficina();
         $oficina->nombre = $request->get('nombre');
-        
+        $oficina->unidad_id = $request->get('unidad_id');
+        $oficina->sede_id = $request->get('sede_id');
         $oficina->save();
 
         return redirect('/oficinas')->with('success','Oficinas creada');
@@ -85,7 +90,8 @@ class OficinaController extends Controller
     {
         $oficina = Oficina::findorFail($id);
         $oficina->nombre = $request->input('nombre');
-        
+        $oficina->unidad_id = $request->get('unidad_id');
+        $oficina->sede_id = $request->get('sede_id');
         $oficina->save();
         return redirect('/oficinas')->with('success','Oficina ha sido modificada');
     }
@@ -98,7 +104,8 @@ class OficinaController extends Controller
      */
     public function destroy($id)
     {
-        Oficina::destroy($id);
+        $oficina = Oficina::find($id);
+        $oficina->delete();
         return redirect('/oficinas')->with('success', 'Oficina Eliminada');
     }
 }
