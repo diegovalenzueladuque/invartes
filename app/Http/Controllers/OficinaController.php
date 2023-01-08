@@ -17,8 +17,8 @@ class OficinaController extends Controller
      */
     public function index()
     {
-        $oficina = Oficina::with('unidad', 'sede');
-       return view('oficinas.index')->with('oficinas', $oficina);
+        $oficinas = Oficina::with('unidad')->get();
+       return view('oficinas.index', compact('oficinas'));
     }
 
     /**
@@ -43,13 +43,15 @@ class OficinaController extends Controller
     {
         $validated = $request->validate([
             'nombre' => 'required',
+            'unidad_id' => 'required',
+            'sede_id' => 'required',
 
         ]);
-        $oficina = new Oficina();
-        $oficina->nombre = $request->get('nombre');
-        $oficina->unidad_id = $request->get('unidad_id');
-        $oficina->sede_id = $request->get('sede_id');
-        $oficina->save();
+        $oficinas = new Oficina();
+        $oficinas->nombre = $request->get('nombre');
+        $oficinas->unidad_id = $request->get('unidad_id');
+        $oficinas->sede_id = $request->get('sede_id');
+        $oficinas->save();
 
         return redirect('/oficinas')->with('success','Oficinas creada');
     }
@@ -74,9 +76,11 @@ class OficinaController extends Controller
      */
     public function edit($id)
     {
-        $oficina = Oficina::findorFail($id);
-        //return $rol;
-        return view('oficinas.edit',compact('oficina'));
+        $oficinas = Oficina::findorFail($id);
+        $unidades = Unidad::all();
+        $sedes = Sede::all();
+        
+        return view('oficinas.edit', compact('oficinas', 'unidades', 'sedes'));
     }
 
     /**
@@ -88,11 +92,11 @@ class OficinaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $oficina = Oficina::findorFail($id);
-        $oficina->nombre = $request->input('nombre');
-        $oficina->unidad_id = $request->get('unidad_id');
-        $oficina->sede_id = $request->get('sede_id');
-        $oficina->save();
+        $oficinas = Oficina::findorFail($id);
+        $oficinas->nombre = $request->input('nombre');
+        $oficinas->unidad_id = $request->get('unidad_id');
+        $oficinas->sede_id = $request->get('sede_id');
+        $oficinas->save();
         return redirect('/oficinas')->with('success','Oficina ha sido modificada');
     }
 

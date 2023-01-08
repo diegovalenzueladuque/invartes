@@ -14,7 +14,7 @@
         <label for="" class="form-label">Nombre</label>
         <input class="form-control" type="text" name="nombre" id="nombre"><br>
         <label for="" class="form-label">Unidad</label>
-        <select class="form-control" name="sede_id" id="sede_id">
+        <select class="form-control" name="unidad_id" id="unidad_id">
             <option value="">Seleccione una opción</option>
             @foreach ($unidades as $unidad)
             <option value="{{ $unidad['id'] }}">{{ $unidad['nombre'] }}</option>
