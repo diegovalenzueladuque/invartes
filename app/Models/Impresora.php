@@ -11,6 +11,10 @@ class Impresora extends Model
     protected $fillable = ['modelo', 'serie', 'marca_id', 'Conexion'];
 
     public function Marca(){
-        return $this->hasMany(Marca::class, 'id');
+        return $this->belongsTo(Marca::class, 'id');
     }
+    public function detalles(){
+        return $this->hasMany(Detalle::class);
+    }
+    
 }

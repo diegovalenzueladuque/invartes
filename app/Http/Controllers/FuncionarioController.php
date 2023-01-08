@@ -92,9 +92,18 @@ class FuncionarioController extends Controller
      * @param  \App\Models\Funcionario  $funcionario
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Funcionario $funcionario)
+    public function update(Request $request, $id)
     {
-        //
+        $funcionario = Funcionario::findorFail($id);
+        $funcionario->nombre = $request->get('nombre');
+        $funcionario->ap_paterno = $request->get('ap_paterno');
+        $funcionario->ap_materno = $request->get('ap_materno');
+        $funcionario->rol_id = $request->get('rol_id');
+        $funcionario->unidad_id = $request->get('unidad_id');
+        
+        $funcionario->save();
+
+        return redirect('/funcionarios')->with('success','Funcionario actualizado');
     }
 
     /**
@@ -103,8 +112,10 @@ class FuncionarioController extends Controller
      * @param  \App\Models\Funcionario  $funcionario
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Funcionario $funcionario)
+    public function destroy($id)
     {
-        //
+        $funcionarios = Funcionario::find($id);
+        $funcionarios->delete();
+        return redirect('/funcionarios')->with('success', 'Funcionario Eliminado');
     }
 }

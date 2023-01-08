@@ -11,10 +11,10 @@ class Detalle extends Model
     protected $fillable = ['cpu', 'ram', 'sistema_id', 'macaddress', 'ip', 'impresora_id'];
 
     public function Sistema(){
-        return $this->hasMany(Sistema::class, 'id');
+        return $this->belongsTo(Sistema::class);
     }
 
     public function Impresora(){
-        return $this->hasMany(Impresora::class, 'id');
+        return $this->belongsTo(Impresora::class);
     }
 }

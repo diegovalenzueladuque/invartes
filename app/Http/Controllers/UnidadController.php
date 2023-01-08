@@ -97,7 +97,7 @@ class UnidadController extends Controller
         
         $unidad->save();
 
-        return redirect('/unidades')->with('success','Unidad creada');
+        return redirect('/unidades')->with('success','Unidad actualizada');
     }
 
     /**

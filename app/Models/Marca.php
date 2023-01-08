@@ -9,16 +9,16 @@ class Marca extends Model
 {
     use HasFactory;
 
-    public function Impresora(){
-        return $this->belongsTo(Impresora::class, 'id');
+    public function Impresoras(){
+        return $this->hasMany(Impresora::class);
     }
 
-    public function Telefono(){
-        return $this->belongsTo(Telefono::class, 'id');
+    public function Telefonos(){
+        return $this->hasMany(Telefono::class);
     }
 
-    public function Computador(){
-        return $this->belongsTo(Computador::class, 'id');
+    public function Computadores(){
+        return $this->hasMany(Computador::class);
     }
 
     

@@ -11,6 +11,6 @@ class Telefono extends Model
     protected $fillable = ['anexo', 'marca_id', 'modelo', 'tipo', 'macaddress', 'ip', 'serie'];
 
     public function Marca(){
-        return $this->hasMany(Marca::class, 'id');
+        return $this->belongsTo(Marca::class);
     }
 }
