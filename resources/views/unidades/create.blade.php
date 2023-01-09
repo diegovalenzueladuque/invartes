@@ -16,14 +16,7 @@
        
         
         
-        <label for="" class="form-label">Sede</label>
-        <select class="form-control" name="sede_id" id="sede_id">
-            <option value="">Seleccione una opción</option>
-            @foreach ($sedes as $sede)
-            <option value="{{ $sede['id'] }}">{{ $sede['nombre'] }}</option>
-                
-            @endforeach
-        </select><br>
+        
         
         <a href="{{ route('unidades.index') }}" class="btn btn-outline-warning">CANCELAR</a>
         <button class="btn btn-outline-success" type="submit">CREAR</button>

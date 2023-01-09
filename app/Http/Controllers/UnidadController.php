@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Oficina;
-use App\Models\Sede;
+
 use App\Models\Unidad;
 use Illuminate\Http\Request;
 
@@ -16,7 +15,7 @@ class UnidadController extends Controller
      */
     public function index()
     {
-        $unidades = Unidad::with(['sede'])->get();
+        $unidades = Unidad::all();
         return view('unidades.index', compact('unidades'));
     }
 
@@ -28,8 +27,8 @@ class UnidadController extends Controller
     public function create()
     {
         
-        $sedes = Sede::all();
-        return view('unidades.create', compact('sedes'));
+        
+        return view('unidades.create')->with('unidades');
     }
 
     /**
@@ -43,13 +42,13 @@ class UnidadController extends Controller
         $validated = $request->validate([
             'nombre' => 'required',
             
-            'sede_id' => 'required',
+            
 
         ]);
         $unidad = new Unidad();
         $unidad->nombre = $request->get('nombre');
         
-        $unidad->sede_id = $request->get('sede_id');
+        
         
         $unidad->save();
 
@@ -77,8 +76,8 @@ class UnidadController extends Controller
     {
         $unidades = Unidad::findorFail($id);
         
-        $sedes = Sede::all();
-        return view('unidades.edit', compact('unidades', 'sedes'));
+        
+        return view('unidades.edit', compact('unidades'));
     }
 
     /**
@@ -93,7 +92,7 @@ class UnidadController extends Controller
         $unidad = Unidad::findorFail($id);
         $unidad->nombre = $request->input('nombre');
         
-        $unidad->sede_id = $request->input('sede_id');
+        
         
         $unidad->save();
 

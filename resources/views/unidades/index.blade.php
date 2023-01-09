@@ -16,7 +16,7 @@
             <th scope="col">Id</th>
             <th scope="col">Nombre</th>
             
-            <th scope="col">Sede</th>
+            
            
           </tr>
         </thead>
@@ -27,8 +27,7 @@
                     <td>{{ $unidad->id }}</td>
                     <td>{{ $unidad->nombre }}</td>
                     
-                    <td >{{ $unidad->sede->nombre }}</td>   
-                    
+                                
                     
                     <td>
                         <form action="{{ route('unidades.destroy', $unidad->id) }}" method="POST">
