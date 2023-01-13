@@ -10,7 +10,7 @@ class Telefono extends Model
     use HasFactory;
     protected $fillable = ['anexo', 'marca_id', 'modelo', 'tipo', 'macaddress', 'ip', 'serie'];
 
-    public function Marca(){
+    public function marca(){
         return $this->belongsTo(Marca::class);
     }
 }

@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Marca;
+use App\Models\Telefono;
 use Illuminate\Http\Request;
-use App\Models\Impresora;
 
-class ImpresoraController extends Controller
+class TelefonoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,9 @@ class ImpresoraController extends Controller
      */
     public function index()
     {
-        $impresoras = Impresora::with('marca')->get();
-        return view('impresoras.index', compact('impresoras'));
+        $telefonos = Telefono::with('marca')->get();
+        return view('telefonos.index', compact('telefonos'));
+
     }
 
     /**
@@ -27,8 +28,8 @@ class ImpresoraController extends Controller
     public function create()
     {
         $marcas = Marca::all();
-        $impresoras = Impresora::all();
-        return view('impresoras.create', compact('impresoras','marcas'));
+        
+        return view('telefonos.create', compact('marcas'));
     }
 
     /**
@@ -40,20 +41,28 @@ class ImpresoraController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'modelo' => 'required',
-            'serie' => 'required',
+            'anexo' => 'required',
             'marca_id' => 'required',
-            'Conexion' => 'required',
-
+            'modelo' => 'required',
+            'tipo' => 'required',
+            'macaddress' => 'required',
+            'ip' => 'required',
+            'serie' => 'required',
+            
         ]);
-        $impresoras = new Impresora();
-        $impresoras->modelo = $request->get('modelo');
-        $impresoras->serie = $request->get('serie');
-        $impresoras->marca_id = $request->get('marca_id');
-        $impresoras->Conexion = $request->get('Conexion');
-        $impresoras->save();
+        $telefonos = new Telefono();
+        $telefonos->anexo = $request->get('anexo');
+        $telefonos->marca_id = $request->get('marca_id');
+        $telefonos->modelo = $request->get('modelo');
+        $telefonos->tipo = $request->get('tipo');
+        $telefonos->macaddress = $request->get('macaddress');
+        $telefonos->ip = $request->get('ip');
+        $telefonos->serie = $request->get('serie');
+        
+        
+        $telefonos->save();
 
-        return redirect('/impresoras')->with('success','Impresora agregada');
+        return redirect('/telefonos')->with('success','Teléfono agregado');
     }
 
     /**
@@ -75,11 +84,7 @@ class ImpresoraController extends Controller
      */
     public function edit($id)
     {
-        $impresoras = Impresora::findorFail($id);
-        $marcas = Marca::all();
-        
-        
-        return view('impresoras.edit', compact('impresoras', 'marcas'));
+        //
     }
 
     /**
@@ -91,13 +96,7 @@ class ImpresoraController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $impresoras = Impresora::findorFail($id);
-        $impresoras->modelo = $request->input('modelo');
-        $impresoras->serie = $request->get('serie');
-        $impresoras->marca_id = $request->get('marca_id');
-        $impresoras->Conexion = $request->get('Conexion');
-        $impresoras->save();
-        return redirect('/impresoras')->with('success','impresora ha sido modificada');
+        //
     }
 
     /**
@@ -108,8 +107,6 @@ class ImpresoraController extends Controller
      */
     public function destroy($id)
     {
-        $impresoras = Impresora::find($id);
-        $impresoras->delete();
-        return redirect('/impresoras')->with('success', 'Impresora Eliminada');
+        //
     }
 }

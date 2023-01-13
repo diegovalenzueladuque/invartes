@@ -10,7 +10,7 @@ class Impresora extends Model
     use HasFactory;
     protected $fillable = ['modelo', 'serie', 'marca_id', 'Conexion'];
 
-    public function Marca(){
+    public function marca(){
         return $this->belongsTo(Marca::class, 'id');
     }
     public function detalles(){

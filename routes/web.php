@@ -1,12 +1,15 @@
 <?php
 
 use App\Http\Controllers\FuncionarioController;
+use App\Http\Controllers\ImpresoraController;
 use App\Http\Controllers\MarcaController;
 use App\Http\Controllers\OficinaController;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\SedeController;
 use App\Http\Controllers\SistemaController;
 use App\Http\Controllers\UnidadController;
+use App\Http\Controllers\TelefonoController;
+
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\HttpKernel\Fragment\RoutableFragmentRenderer;
 
@@ -36,3 +39,5 @@ Route::resource('funcionarios', FuncionarioController::class)->middleware('auth'
 Route::resource('marcas', MarcaController::class)->middleware('auth');
 Route::resource('sistemas', SistemaController::class)->middleware('auth');
 Route::resource('unidades', UnidadController::class)->middleware('auth');
+Route::resource('impresoras', ImpresoraController::class)->middleware('auth');
+Route::resource('telefonos', TelefonoController::class)->middleware('auth');
