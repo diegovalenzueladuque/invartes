@@ -10,18 +10,18 @@ class Computador extends Model
     use HasFactory;
     protected $fillable = ['codigo', 'serie', 'marca_id', 'detalle_id', 'funcionario_id', 'telefono_id'];
 
-    public function Marca(){
-        return $this->hasMany(Marca::class, 'id');
+    public function marca(){
+        return $this->belongsTo(Marca::class);
     }
 
-    public function Detalle(){
-        return $this->hasMany(Detalle::class, 'id');
+    public function detalle(){
+        return $this->belongsTo(Detalle::class);
     }
 
-    public function Funcionario(){
-        return $this->hasMany(Funcionario::class, 'id');
+    public function funcionario(){
+        return $this->belongsTo(Funcionario::class);
     }
-    public function Telefono(){
-        return $this->hasMany(Telefono::class, 'id');
+    public function telefono(){
+        return $this->belongsTo(Telefono::class);
     }
 }

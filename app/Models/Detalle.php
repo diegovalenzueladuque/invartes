@@ -10,11 +10,14 @@ class Detalle extends Model
     use HasFactory;
     protected $fillable = ['cpu', 'ram', 'sistema_id', 'macaddress', 'ip', 'impresora_id'];
 
-    public function Sistema(){
+    public function sistema(){
         return $this->belongsTo(Sistema::class);
     }
 
-    public function Impresora(){
+    public function impresora(){
         return $this->belongsTo(Impresora::class);
+    }
+    public function computadores(){
+        return $this->hasMany(Computador::class);
     }
 }

@@ -18,4 +18,7 @@ class Funcionario extends Model
 
         return $this->belongsTo(Unidad::class);
     }
+    public function computadores(){
+        return $this->hasMany(Computador::class);
+    }
 }

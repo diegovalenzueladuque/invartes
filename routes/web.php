@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ComputadorController;
 use App\Http\Controllers\FuncionarioController;
 use App\Http\Controllers\ImpresoraController;
 use App\Http\Controllers\MarcaController;
@@ -41,3 +42,4 @@ Route::resource('sistemas', SistemaController::class)->middleware('auth');
 Route::resource('unidades', UnidadController::class)->middleware('auth');
 Route::resource('impresoras', ImpresoraController::class)->middleware('auth');
 Route::resource('telefonos', TelefonoController::class)->middleware('auth');
+Route::resource('computadores', ComputadorController::class)->middleware('auth');

@@ -84,7 +84,11 @@ class TelefonoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $telefonos = Telefono::findorFail($id);
+        $marcas = Marca::all();
+        
+        
+        return view('telefonos.edit', compact('telefonos', 'marcas'));
     }
 
     /**
@@ -96,7 +100,19 @@ class TelefonoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $telefonos = Telefono::findorFail($id);
+        $telefonos->anexo = $request->get('anexo');
+        $telefonos->marca_id = $request->get('marca_id');
+        $telefonos->modelo = $request->get('modelo');
+        $telefonos->tipo = $request->get('tipo');
+        $telefonos->macaddress = $request->get('macaddress');
+        $telefonos->ip = $request->get('ip');
+        $telefonos->serie = $request->get('serie');
+        
+        
+        $telefonos->save();
+
+        return redirect('/telefonos')->with('success','Teléfono actualizado');
     }
 
     /**
@@ -107,6 +123,8 @@ class TelefonoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $telefonos = Telefono::find($id);
+        $telefonos->delete();
+        return redirect('/telefonos')->with('success', 'Teléfono eliminado');
     }
 }

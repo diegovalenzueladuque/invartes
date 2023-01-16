@@ -13,4 +13,7 @@ class Telefono extends Model
     public function marca(){
         return $this->belongsTo(Marca::class);
     }
+    public function computadores(){
+        return $this->hasMany(Computador::class);
+    }
 }
