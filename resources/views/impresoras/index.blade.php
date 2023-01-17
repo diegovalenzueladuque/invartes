@@ -14,13 +14,11 @@
         <thead>
           <tr>
             <th scope="col">Id</th>
-            <th scope="col">Anexo</th>
-            <th scope="col">Marca</th>
             <th scope="col">Modelo</th>
-            <th scope="col">Tipo</th>
-            <th scope="col">Mac Address</th>
-            <th scope="col">IP</th>
             <th scope="col">Serie</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Conexión</th>
+            
 
             
            

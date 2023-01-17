@@ -14,9 +14,9 @@
         <thead>
           <tr>
             <th scope="col">Id</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Apellido Paterno</th>
-            <th scope="col">Apellido Materno</th>
+            <th scope="col">Código</th>
+            <th scope="col">Serie</th>
+            <th scope="col">Marca</th>
             <th scope="col">Rol</th>
             <th scope="col">Unidad</th>
            
