@@ -5,14 +5,13 @@
 @section('content_header')
 
 <div class="container-fluid">
-    <h1 class="shadow text-center text-light rounded" style="width: 12rem;background: rgb(35,34,40);
-    background: linear-gradient(90deg, rgba(35,34,40,1) 0%, rgba(75,75,83,1) 35%, rgba(208,209,209,1) 100%);"><b>HOME</b></h1>
+    <h3 class="shadow text-center text-light rounded bg-dark" style="width: 18rem;"><b>HOME</b></h3>
 </div><br>
 
 
-<div class="container-fluid text-center">
+<div class="container text-center">
     <div class="row">
-        <div class="col col-3">
+        <div class="col col-4 shadow">
             <h2>Gráfico Circular</h2>
             <canvas id="myChart"></canvas>
         </div>
@@ -20,7 +19,7 @@
             
             
         </div>
-        <div class="col col-6">
+        <div class="col col-6 shadow">
             <h2>Gráfico de Barras</h2>
             <canvas id="myChart2"></canvas>
         </div>
@@ -29,10 +28,10 @@
     </div>
     
 </div><br><br>
-<div class="container-fluid text-center">
+<div class="container text-center">
     <div class="row">
         <div class="col col-2"></div>
-        <div class="col col-9">
+        <div class="col col-9 shadow">
             <h2>Gráfico Lineal</h2>
             <canvas id="myChart3"></canvas>
         </div>
