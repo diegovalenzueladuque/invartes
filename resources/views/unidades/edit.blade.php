@@ -13,7 +13,7 @@
         @csrf
         @method('PUT')
         <label for="" class="form-label">Nombre</label>
-        <input class="form-control" type="text" name="nombre" id="nombre" value="{{ $unidades->nombre }}"><br>
+        <input class="form-control" type="text" name="nombre" id="nombre" value="{{ $unidades->nombre }}" required><br>
         
         
         

@@ -17,26 +17,29 @@
             <th scope="col">Código</th>
             <th scope="col">Serie</th>
             <th scope="col">Marca</th>
-            <th scope="col">Rol</th>
-            <th scope="col">Unidad</th>
+            <th scope="col">Inventario</th>
+            <th scope="col">Funcionario</th>
+            <th scope="col">Teléfono</th>
+            
            
           </tr>
         </thead>
         
         <tbody>
-            @foreach ($funcionarios as $funcionario)
+            @foreach ($computadores as $computador)
                 <tr>
-                    <td>{{ $funcionario->id }}</td>
-                    <td>{{ $funcionario->nombre }}</td>
-                    <td>{{ $funcionario->ap_paterno}}</td>
-                    <td>{{ $funcionario->ap_materno}}</td>
-                    <td>{{ $funcionario->rol->nombre}}</td>
-                    <td>{{ $funcionario->unidad->nombre}}</td>
+                    <td>{{ $computador->id }}</td>
+                    <td>{{ $computador->codigo }}</td>
+                    <td>{{ $computadoro->serie}}</td>
+                    <td>{{ $computador->marca->nombre}}</td>
+                    <td>{{ $computador->detalle->created_at}}</td>
+                    <td>{{ $computador->funcionario->$nombre, $ap_paterno, $ap_materno}}</td>
+                    <td>{{ $computador->telefono->anexo}}</td>
                     <td>
-                        <form action="{{ route('funcionarios.destroy', $funcionario->id) }}" method="POST">
+                        <form action="{{ route('computadores.destroy', $computador->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <i class="fas fa-pen"></i>&nbsp;<a href="/funcionarios/{{ $funcionario->id }}/edit" class="btn btn-outline-info">EDITAR</a>&nbsp;&nbsp;
+                            <i class="fas fa-pen"></i>&nbsp;<a href="/computadores/{{ $computador->id }}/edit" class="btn btn-outline-info">EDITAR</a>&nbsp;&nbsp;
                             
                             
                             <i class="fas fa-trash"></i>&nbsp;<button type="submit" class="btn btn-outline-danger">ELIMINAR</button>

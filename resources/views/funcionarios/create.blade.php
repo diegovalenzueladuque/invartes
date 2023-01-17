@@ -12,13 +12,13 @@
     <form action={{ route('funcionarios.index') }} method="POST">
         @csrf
         <label for="" class="form-label">Nombre</label>
-        <input class="form-control" type="text" name="nombre" id="nombre"><br>
+        <input class="form-control" type="text" name="nombre" id="nombre" required><br>
         <label for="" class="form-label">Apellido Paterno</label>
-        <input class="form-control" type="text" name="ap_paterno" id="ap_paterno"><br>
+        <input class="form-control" type="text" name="ap_paterno" id="ap_paterno" required><br>
         <label for="" class="form-label">Apellido Materno</label>
-        <input class="form-control" type="text" name="ap_materno" id="ap_materno"><br>
+        <input class="form-control" type="text" name="ap_materno" id="ap_materno" required><br>
         <label for="" class="form-label">Rol</label>
-        <select class="form-control" name="rol_id" id="rol_id">
+        <select class="form-control" name="rol_id" id="rol_id" required>
             <option value="">Seleccione una opción</option>
             @foreach ($roles as $rol)
             <option value="{{ $rol['id'] }}">{{ $rol['nombre'] }}</option>
@@ -28,7 +28,7 @@
         
         
         <label for="" class="form-label">Unidad</label>
-        <select class="form-control" name="unidad_id" id="unidad_id">
+        <select class="form-control" name="unidad_id" id="unidad_id" required>
             <option value="">Seleccione una opción</option>
             @foreach ($unidades as $unidad)
             <option value="{{ $unidad['id'] }}">{{ $unidad['nombre'] }}</option>

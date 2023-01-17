@@ -12,9 +12,9 @@
     <form action={{ route('oficinas.index') }} method="POST">
         @csrf
         <label for="" class="form-label">Nombre</label>
-        <input class="form-control" type="text" name="nombre" id="nombre"><br>
+        <input class="form-control" type="text" name="nombre" id="nombre" required><br>
         <label for="" class="form-label">Unidad</label>
-        <select class="form-control" name="unidad_id" id="unidad_id">
+        <select class="form-control" name="unidad_id" id="unidad_id" required>
             <option value="">Seleccione una opción</option>
             @foreach ($unidades as $unidad)
             <option value="{{ $unidad['id'] }}">{{ $unidad['nombre'] }}</option>
@@ -22,7 +22,7 @@
             @endforeach
         </select><br>
         <label for="" class="form-label">Sede</label>
-        <select class="form-control" name="sede_id" id="sede_id">
+        <select class="form-control" name="sede_id" id="sede_id" required>
             <option value="">Seleccione una opción</option>
             @foreach ($sedes as $sede)
             <option value="{{ $sede['id'] }}">{{ $sede['nombre'] }}</option>

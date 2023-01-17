@@ -13,7 +13,7 @@
         @csrf
         @method('PUT')
         <label for="" class="form-label">Nombre</label>
-        <input class="form-control" type="text" name="nombre" id="nombre" value="{{ $rol->nombre }}"><br>
+        <input class="form-control" type="text" name="nombre" id="nombre" value="{{ $rol->nombre }}" required><br>
         <a href="{{ route('roles.index') }}" class="btn btn-outline-warning">CANCELAR</a>
         <button class="btn btn-outline-success" type="submit">ACTUALIZAR</button>
         

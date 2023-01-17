@@ -12,7 +12,7 @@
     <form action={{ route('unidades.index') }} method="POST">
         @csrf
         <label for="" class="form-label">Nombre</label>
-        <input class="form-control" type="text" name="nombre" id="nombre"><br>
+        <input class="form-control" type="text" name="nombre" id="nombre" required><br>
        
         
         
