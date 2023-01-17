@@ -5,17 +5,16 @@
 @section('content_header')
 
 <div class="container-fluid">
-    <h1 class="shadow text-center text-light rounded" style="width: 12rem;background: rgb(35,34,40);
-    background: linear-gradient(90deg, rgba(35,34,40,1) 0%, rgba(75,75,83,1) 35%, rgba(208,209,209,1) 100%);"><b>MARCAS</b></h1>
+    <h3 class="shadow text-center text-light rounded bg-dark" style="width: 18rem;"><b>MARCAS</b></h3>
 </div><br>
 <div class="container">
-    <a href="{{ route('marcas.create') }}" class="btn btn-outline-primary">CREAR</a>
+    <a href="{{ route('marcas.create') }}" class="btn btn-outline-primary">CREAR</a><br><br>
     <table class="table table-hover">
         <thead>
           <tr>
             <th scope="col">Id</th>
             <th scope="col">Nombre</th>
-           
+            <th scope="col">Acciones</th>
            
           </tr>
         </thead>
@@ -29,10 +28,10 @@
                         <form action="{{ route('marcas.destroy', $marca->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <i class="fas fa-pen"></i>&nbsp;<a href="/marcas/{{ $marca->id }}/edit" class="btn btn-outline-info">EDITAR</a>&nbsp;&nbsp;
+                            <a href="/marcas/{{ $marca->id }}/edit" class="btn btn-outline-info"><i class="fas fa-pen"></i>&nbsp;EDITAR</a>&nbsp;&nbsp;
                             
                             
-                            <i class="fas fa-trash"></i>&nbsp;<button type="submit" class="btn btn-outline-danger">ELIMINAR</button>
+                            <button type="submit" class="btn btn-outline-danger"><i class="fas fa-trash"></i>&nbsp;ELIMINAR</button>
                         </form>
                     </td>
                 </tr>

@@ -5,8 +5,7 @@
 @section('content_header')
 
 <div class="container-fluid">
-    <h1 class="shadow text-center text-light rounded" style="width: 12rem;background: rgb(35,34,40);
-    background: linear-gradient(90deg, rgba(35,34,40,1) 0%, rgba(75,75,83,1) 35%, rgba(208,209,209,1) 100%);"><b>EDITAR MARCAS</b></h1>
+    <h3 class="shadow text-center text-light rounded bg-dark" style="width: 18rem;"><b>EDITAR MARCAS</b></h3>
 </div><br>
 <div class="container">
     <form action="{{ route ('marcas.update', $marcas->id) }}" method="POST">
