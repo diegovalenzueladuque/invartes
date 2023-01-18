@@ -5,7 +5,7 @@
 @section('content_header')
 
 <div class="container-fluid">
-    <h3 class="shadow text-center text-light rounded bg-dark" style="width: 18rem;"><b>CREAR ROLES</b></h3>
+    <h1 class="shadow text-center rounded btn btn-outline-secondary" style="width: 18rem;">CREAR ROLES</h1>
 </div><br>
 <div class="container">
     <form action={{ route('roles.index') }} method="POST">

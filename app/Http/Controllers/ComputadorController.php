@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Computador;
 use App\Models\Detalle;
+use App\Models\Funcionario;
+use App\Models\Marca;
+use App\Models\Telefono;
 use Illuminate\Http\Request;
 
 class ComputadorController extends Controller
@@ -29,7 +32,12 @@ class ComputadorController extends Controller
      */
     public function create()
     {
-        //
+        $computadores = Computador::all();
+        $detalle = Detalle::all();
+        $funcionarios = Funcionario::all();
+        $marcas = Marca::all();
+        $telefonos = Telefono::all();
+        return view('computadores.create', compact('detalles','funcionarios', 'marcas', 'telefonos'));
     }
 
     /**

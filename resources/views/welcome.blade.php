@@ -5,7 +5,7 @@
 @section('content_header')
 
 <div class="container-fluid">
-    <h3 class="shadow text-center text-light rounded bg-dark" style="width: 18rem;"><b>HOME</b></h3>
+    <h1 class="shadow text-center rounded btn btn-outline-secondary" style="width: 18rem;">HOME</h1>
 </div><br>
 
 
