@@ -13,15 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('telefonos', function (Blueprint $table) {
+        Schema::create('monitors', function (Blueprint $table) {
             $table->id();
-            $table->String('anexo');                        
-            $table->foreignId('marca_id')->constrained('marcas')->onUpdate('cascade')->onDelete('cascade');           
-            $table->String('modelo')->nullable();
-            $table->enum('tipo',['ANÁLOGO', 'IP']);
-            $table->String('macaddress')->nullable();
-            $table->String('ip')->nullable();
+            $table->String('modelo');
             $table->String('serie')->unique();
+            $table->foreignId('marca_id')->constrained('marcas')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -33,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('telefonos');
+        Schema::dropIfExists('monitors');
     }
 };

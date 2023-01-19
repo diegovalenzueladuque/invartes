@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Computador extends Model
 {
     use HasFactory;
-    protected $fillable = ['codigo', 'serie', 'marca_id', 'detalle_id', 'funcionario_id', 'telefono_id'];
+    protected $fillable = ['codigo', 'serie', 'marca_id', 'funcionario_id', 'telefono_id'];
 
     public function marca(){
         return $this->belongsTo(Marca::class);
@@ -26,5 +26,8 @@ class Computador extends Model
     }
     public function sistema(){
         return $this->belongsTo(Sistema::class);
+    }
+    public function monitor(){
+        return $this->belongsTo(Monitor::class);
     }
 }

@@ -384,6 +384,11 @@ return [
                     'icon'        => 'fas fa-print',
                 ],
                 [
+                    'text'        => 'MONITORES',
+                    'url'         => 'monitores',
+                    'icon'        => 'fas fa-tv',
+                ],
+                [
                     'text'        => 'COMPUTADORES',
                     'url'         => 'computadores',
                     'icon'        => 'fas fa-laptop',

@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\MonitorController;
 use App\Http\Controllers\ComputadorController;
 use App\Http\Controllers\FuncionarioController;
 use App\Http\Controllers\ImpresoraController;
@@ -10,7 +10,6 @@ use App\Http\Controllers\SedeController;
 use App\Http\Controllers\SistemaController;
 use App\Http\Controllers\UnidadController;
 use App\Http\Controllers\TelefonoController;
-
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\HttpKernel\Fragment\RoutableFragmentRenderer;
 
@@ -43,3 +42,4 @@ Route::resource('unidades', UnidadController::class)->middleware('auth');
 Route::resource('impresoras', ImpresoraController::class)->middleware('auth');
 Route::resource('telefonos', TelefonoController::class)->middleware('auth');
 Route::resource('computadores', ComputadorController::class)->middleware('auth');
+Route::resource('monitores', MonitorController::class)->middleware('auth');
