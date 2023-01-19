@@ -19,6 +19,7 @@
             <th scope="col">Inventario</th>
             <th scope="col">Funcionario</th>
             <th scope="col">Teléfono</th>
+            <th scope="col">Unidad</th>
             <th scope="col">Acciones</th>
             
            
@@ -32,9 +33,10 @@
                     <td>{{ $computador->codigo }}</td>
                     <td>{{ $computadoro->serie}}</td>
                     <td>{{ $computador->marca->nombre}}</td>
-                    <td>{{ $computador->detalle->created_at}}</td>
-                    <td>{{ $computador->funcionario->$nombre, $ap_paterno, $ap_materno}}</td>
+                    <td>{{ $computador->created_at}}</td>
+                    <td>{{ $computador->funcionario->nombre}}</td>
                     <td>{{ $computador->telefono->anexo}}</td>
+                    <td>{{ $computador->funcionario->unidad->nombre}}</td>
                     <td>
                         <form action="{{ route('computadores.destroy', $computador->id) }}" method="POST">
                             @csrf

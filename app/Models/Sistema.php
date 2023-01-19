@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Sistema extends Model
 {
     use HasFactory;
+    public function computadores(){
+        return $this->hasMany(Computador::class);
+    }
 }

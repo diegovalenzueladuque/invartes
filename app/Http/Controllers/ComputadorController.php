@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Computador;
-use App\Models\Detalle;
+
 use App\Models\Funcionario;
 use App\Models\Marca;
+use App\Models\Sistema;
 use App\Models\Telefono;
 use Illuminate\Http\Request;
 
@@ -18,9 +19,10 @@ class ComputadorController extends Controller
      */
     public function index()
     {
-        $computadores = Computador::with('detalles')->get();
-        $detalle = Detalle::all();
-        return view('computadores.index', compact('computadores', 'detalle'));
+        $computadores = Computador::with('marcas')->get();
+        $marcas = Marca::all();
+        $funcionarios = Funcionario::all();
+        return view('computadores.index', compact('computadores', 'funcionarios'));
 
 
     }
@@ -33,11 +35,11 @@ class ComputadorController extends Controller
     public function create()
     {
         $computadores = Computador::all();
-        $detalle = Detalle::all();
+        $sistemas = Sistema::all();
         $funcionarios = Funcionario::all();
         $marcas = Marca::all();
         $telefonos = Telefono::all();
-        return view('computadores.create', compact('detalles','funcionarios', 'marcas', 'telefonos'));
+        return view('computadores.create', compact('funcionarios', 'marcas', 'telefonos', 'sistemas'));
     }
 
     /**

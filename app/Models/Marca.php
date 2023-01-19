@@ -17,7 +17,7 @@ class Marca extends Model
         return $this->hasMany(Telefono::class);
     }
 
-    public function Computadores(){
+    public function computadores(){
         return $this->hasMany(Computador::class);
     }
 

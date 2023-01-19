@@ -18,9 +18,14 @@ return new class extends Migration
             $table->String('codigo');  
             $table->String('serie');         
             $table->foreignId('marca_id')->constrained('marcas')->onUpdate('cascade')->onDelete('cascade');            
-            $table->foreignId('detalle_id')->constrained('detalles')->onUpdate('cascade')->onDelete('cascade');            
+            $table->String('cpu');
+            $table->String('ram');
+            $table->foreignId('sistema_id')->constrained('sistemas')->onUpdate('cascade')->onDelete('cascade');
+            $table->String('macaddress');
+            $table->String('ip');          
             $table->foreignId('funcionario_id')->constrained('funcionarios')->onUpdate('cascade')->onDelete('cascade');     
-            $table->foreignId('telefono_id')->constrained('telefonos')->onUpdate('cascade')->onDelete('cascade'); 
+            $table->foreignId('telefono_id')->constrained('telefonos')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('impresora_id')->constrained('impresoras')->onUpdate('cascade')->onDelete('cascade'); 
             $table->timestamps();
         });
     }

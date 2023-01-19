@@ -14,8 +14,8 @@ class Computador extends Model
         return $this->belongsTo(Marca::class);
     }
 
-    public function detalle(){
-        return $this->belongsTo(Detalle::class);
+    public function impresora(){
+        return $this->belongsTo(Impresora::class);
     }
 
     public function funcionario(){
@@ -23,5 +23,8 @@ class Computador extends Model
     }
     public function telefono(){
         return $this->belongsTo(Telefono::class);
+    }
+    public function sistema(){
+        return $this->belongsTo(Sistema::class);
     }
 }

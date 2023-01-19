@@ -13,8 +13,8 @@ class Impresora extends Model
     public function marca(){
         return $this->belongsTo(Marca::class, 'id');
     }
-    public function detalles(){
-        return $this->hasMany(Detalle::class);
+    public function computadores(){
+        return $this->hasMany(Computador::class);
     }
     
 }

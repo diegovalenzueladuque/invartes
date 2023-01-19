@@ -10,27 +10,39 @@
 <div class="container">
     <form action={{ route('funcionarios.index') }} method="POST">
         @csrf
-        <label for="" class="form-label">Nombre</label>
-        <input class="form-control" type="text" name="nombre" id="nombre"><br>
-        <label for="" class="form-label">Apellido Paterno</label>
-        <input class="form-control" type="text" name="ap_paterno" id="ap_paterno"><br>
-        <label for="" class="form-label">Apellido Materno</label>
-        <input class="form-control" type="text" name="ap_materno" id="ap_materno"><br>
-        <label for="" class="form-label">Rol</label>
+        <label for="" class="form-label">Código</label>
+        <input class="form-control" type="text" name="codigo" id="codigo"><br>
+        <label for="" class="form-label">Serie</label>
+        <input class="form-control" type="text" name="serie" id="serie"><br>
+        <label for="" class="form-label">Marca</label>
         <select class="form-control" name="rol_id" id="rol_id">
             <option value="">Seleccione una opción</option>
-            @foreach ($roles as $rol)
-            <option value="{{ $rol['id'] }}">{{ $rol['nombre'] }}</option>
+            @foreach ($marcas as $marca)
+            <option value="{{ $marca['id'] }}">{{ $marca['nombre'] }}</option>
                 
             @endforeach
         </select><br>
-        
-        
-        <label for="" class="form-label">Unidad</label>
-        <select class="form-control" name="unidad_id" id="unidad_id">
+        <label for="" class="form-label">CPU</label>
+        <input type="text" class="form-control" name="cpu" id="cpu"><br>
+        <label for="" class="form-label">RAM</label>
+        <input type="text" class="form-control" name="ram" id="ram"><br>
+        <label for="" class="form-label">Sistema Operativo</label>
+        <select class="form-control" name="sistema_id" id="sistema_id">
             <option value="">Seleccione una opción</option>
-            @foreach ($unidades as $unidad)
-            <option value="{{ $unidad['id'] }}">{{ $unidad['nombre'] }}</option>
+            @foreach ($sistemas as $sistema)
+            <option value="{{ $sistema['id'] }}">{{ $sistema['nombre'] }}</option>
+                
+            @endforeach
+        </select><br>
+        <label for="" class="form-label">Mac Address</label>
+        <input type="text" class="form-control" name="macaddress" id="macaddress"><br>
+        <label for="" class="form-label">IP</label>
+        <input type="text" class="form-control" name="ip" id="ip"><br>
+        <label for="" class="form-label">Funcionario</label>
+        <select class="form-control" name="funcionario_id" id="funcionario_id">
+            <option value="">Seleccione una opción</option>
+            @foreach ($funcionarios as $funcionario)
+            <option value="{{ $funcionario['id'] }}">{{ $funcionario->nombre }} {{ $funcionario->ap_paterno }} {{ $funcionario->ap_materno }}</option>
                 
             @endforeach
         </select><br>
