@@ -105,7 +105,14 @@ class ComputadorController extends Controller
      */
     public function edit($id)
     {
-        //
+        $computadores = Computador::findorFail($id);
+        $sistemas = Sistema::all();
+        $marcas = Marca::all();
+        $telefonos = Telefono::all();
+        $funcionarios = Funcionario::all();
+        $impresoras = Impresora::all();
+        $monitores = Monitor::all();
+        return view('computadores.edit', compact('computadores', 'sistemas', 'marcas', 'telefonos', 'funcionarios', 'impresoras', 'monitores'));
     }
 
     /**
@@ -117,7 +124,23 @@ class ComputadorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $computadores = Computador::findorFail($id);
+        $computadores->codigo = $request->get('codigo');
+        $computadores->serie = $request->get('serie');
+        $computadores->cpu = $request->get('cpu');
+        $computadores->ram = $request->get('ram');
+        $computadores->sistema_id = $request->get('sistema_id');
+        $computadores->macaddress = $request->get('macaddress');
+        $computadores->ip = $request->get('ip');
+        $computadores->marca_id = $request->get('marca_id');
+        $computadores->funcionario_id = $request->get('funcionario_id');
+        $computadores->telefono_id = $request->get('telefono_id');
+        $computadores->impresora_id = $request->get('impresora_id');
+        $computadores->monitor_id = $request->get('monitor_id');
+        
+        $computadores->save();
+
+        return redirect('/computadores')->with('success','Computador actualizado');
     }
 
     /**
@@ -128,6 +151,8 @@ class ComputadorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $computadores = Computador::findorFail($id);
+        $computadores->delete();
+        return redirect('computadores')->with('Success', 'Computador Eliminado');
     }
 }

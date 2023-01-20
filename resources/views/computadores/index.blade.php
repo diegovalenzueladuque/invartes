@@ -20,6 +20,7 @@
             <th scope="col">Funcionario</th>
             <th scope="col">Teléfono</th>
             <th scope="col">Unidad</th>
+            
             <th scope="col">Acciones</th>
             
            
@@ -37,6 +38,7 @@
                     <td>{{ $computador->funcionario->nombre}} {{ $computador->funcionario->ap_paterno }} {{ $computador->funcionario->ap_materno }}</td>
                     <td>{{ $computador->telefono->anexo}}</td>
                     <td>{{ $computador->funcionario->unidad->nombre}}</td>
+                    
                     <td>
                         <form action="{{ route('computadores.destroy', $computador->id) }}" method="POST">
                             @csrf
