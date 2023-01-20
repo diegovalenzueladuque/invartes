@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Computador;
 
 use App\Models\Funcionario;
+use App\Models\Impresora;
 use App\Models\Marca;
+use App\Models\Monitor;
 use App\Models\Sistema;
 use App\Models\Telefono;
 use Illuminate\Http\Request;
@@ -39,7 +41,9 @@ class ComputadorController extends Controller
         $funcionarios = Funcionario::all();
         $marcas = Marca::all();
         $telefonos = Telefono::all();
-        return view('computadores.create', compact('funcionarios', 'marcas', 'telefonos', 'sistemas'));
+        $impresoras = Impresora::all();
+        $monitores = Monitor::all();
+        return view('computadores.create', compact('funcionarios', 'marcas', 'telefonos', 'sistemas', 'impresoras', 'monitores'));
     }
 
     /**

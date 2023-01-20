@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Computador extends Model
 {
     use HasFactory;
-    protected $fillable = ['codigo', 'serie', 'marca_id', 'funcionario_id', 'telefono_id'];
+    protected $fillable = ['codigo', 'serie', 'cpu', 'ram', 'sistema_id', 'macaddress', 'ip', 'marca_id', 'funcionario_id', 'telefono_id', 'impresora_id','monitor_id'];
 
     public function marca(){
         return $this->belongsTo(Marca::class);

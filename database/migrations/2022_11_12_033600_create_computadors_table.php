@@ -22,10 +22,11 @@ return new class extends Migration
             $table->String('ram');
             $table->foreignId('sistema_id')->constrained('sistemas')->onUpdate('cascade')->onDelete('cascade');
             $table->String('macaddress')->unique();
-            $table->String('ip');          
+            $table->String('ip')->unique();          
             $table->foreignId('funcionario_id')->constrained('funcionarios')->onUpdate('cascade')->onDelete('cascade');     
             $table->foreignId('telefono_id')->constrained('telefonos')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('impresora_id')->constrained('impresoras')->onUpdate('cascade')->onDelete('cascade'); 
+            $table->foreignId('monitor_id')->constrained('monitors')->onUpdate('cascade')->onDelete('cascade'); 
             $table->timestamps();
         });
     }

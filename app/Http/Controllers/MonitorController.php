@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Marca;
 use Illuminate\Http\Request;
 use App\Models\Monitor;
 use Illuminate\Support\Facades\Validator;
@@ -26,7 +27,9 @@ class MonitorController extends Controller
      */
     public function create()
     {
-        //
+        $marcas = Marca::all();
+        $monitores = Monitor::all();
+        return view('monitores.create', compact('monitores','marcas'));
     }
 
     /**
@@ -37,7 +40,21 @@ class MonitorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'modelo' => 'required',
+            'serie' => 'required',
+            'marca_id' => 'required',
+            
+
+        ]);
+        $monitores = new Monitor();
+        $monitores->modelo = $request->get('modelo');
+        $monitores->serie = $request->get('serie');
+        $monitores->marca_id = $request->get('marca_id');
+        
+        $monitores->save();
+
+        return redirect('/monitores')->with('success','Monitor agregado');
     }
 
     /**
@@ -59,7 +76,9 @@ class MonitorController extends Controller
      */
     public function edit($id)
     {
-        //
+        $marcas = Marca::all();
+        $monitores = Monitor::findorFail($id);
+        return view('monitores.edit', compact('monitores','marcas'));
     }
 
     /**
@@ -71,7 +90,15 @@ class MonitorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+        $monitores = Monitor::findorFail($id);
+        $monitores->modelo = $request->get('modelo');
+        $monitores->serie = $request->get('serie');
+        $monitores->marca_id = $request->get('marca_id');
+        
+        $monitores->save();
+
+        return redirect('/monitores')->with('success','Monitor actualizado');
     }
 
     /**
@@ -82,6 +109,8 @@ class MonitorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $monitores = Monitor::find($id);
+        $monitores->delete();
+        return redirect('/monitores')->with('success', 'Monitor Eliminado');
     }
 }

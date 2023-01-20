@@ -11,7 +11,7 @@
     <form action={{ route('telefonos.index') }} method="POST">
         @csrf
         <label for="" class="form-label">Anexo</label>
-        <input class="form-control" type="text" name="anexo" id="anexo" required><br>
+        <input class="form-control" type="text" name="anexo" id="anexo" autofocus required><br>
         <label for="" class="form-label">Marca</label>
         <select class="form-control" name="marca_id" id="marca_id" required>
             <option value="">Seleccione una opción</option>

@@ -1,14 +1,14 @@
 @extends('adminlte::page')
 
-@section('title', 'Ingresar Impresora')
+@section('title', 'Ingresar Monitor')
 
 @section('content_header')
 
 <div class="container-fluid">
-    <h1 class="shadow text-center rounded btn btn-outline-secondary" style="width: 18rem;">INGRESAR IMPRESORA</h1>
+    <h1 class="shadow text-center rounded btn btn-outline-secondary" style="width: 18rem;">INGRESAR MONITOR</h1>
 </div><br>
 <div class="container">
-    <form action={{ route('impresoras.index') }} method="POST">
+    <form action={{ route('monitores.index') }} method="POST">
         @csrf
         <label for="" class="form-label">Modelo</label>
         <input class="form-control" type="text" name="modelo" id="modelo" required><br>
@@ -22,12 +22,11 @@
                 
             @endforeach
         </select><br>
-        <label for="" class="form-label">Conexión</label>
-        <input class="form-control" type="text" name="Conexion" id="Conexion" placeholder="1 o 2. USB o RED" required>        
+              
         
                 
         
-        <a href="{{ route('impresoras.index') }}" class="btn btn-outline-warning">CANCELAR</a>
+        <a href="{{ route('monitores.index') }}" class="btn btn-outline-warning">CANCELAR</a>
         <button class="btn btn-outline-success" type="submit">CREAR</button>
         
 
