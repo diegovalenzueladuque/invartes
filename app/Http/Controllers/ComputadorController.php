@@ -21,10 +21,9 @@ class ComputadorController extends Controller
      */
     public function index()
     {
-        $computadores = Computador::with('marcas')->get();
-        $marcas = Marca::all();
-        $funcionarios = Funcionario::all();
-        return view('computadores.index', compact('computadores', 'funcionarios'));
+        $computadores = Computador::all();
+        
+        return view('computadores.index', compact('computadores'));
 
 
     }
@@ -54,7 +53,37 @@ class ComputadorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'codigo' => 'required',
+            'serie' => 'required',
+            'cpu' => 'required',
+            'ram' => 'required',
+            'sistema_id' => 'required',
+            'macaddress' => 'required',
+            'ip' => 'required',
+            'marca_id' => 'required',
+            'funcionario_id' => 'required',
+            'telefono_id' => 'required',
+            'impresora_id' => 'required',
+            'monitor_id' => 'required',
+        ]);
+        $computadores = new Computador();
+        $computadores->codigo = $request->get('codigo');
+        $computadores->serie = $request->get('serie');
+        $computadores->cpu = $request->get('cpu');
+        $computadores->ram = $request->get('ram');
+        $computadores->sistema_id = $request->get('sistema_id');
+        $computadores->macaddress = $request->get('macaddress');
+        $computadores->ip = $request->get('ip');
+        $computadores->marca_id = $request->get('marca_id');
+        $computadores->funcionario_id = $request->get('funcionario_id');
+        $computadores->telefono_id = $request->get('telefono_id');
+        $computadores->impresora_id = $request->get('impresora_id');
+        $computadores->monitor_id = $request->get('monitor_id');
+        
+        $computadores->save();
+
+        return redirect('/computadores')->with('success','Computador agregado');
     }
 
     /**

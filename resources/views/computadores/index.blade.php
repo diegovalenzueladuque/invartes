@@ -31,10 +31,10 @@
                 <tr>
                     <td>{{ $computador->id }}</td>
                     <td>{{ $computador->codigo }}</td>
-                    <td>{{ $computadoro->serie}}</td>
+                    <td>{{ $computador->serie}}</td>
                     <td>{{ $computador->marca->nombre}}</td>
-                    <td>{{ $computador->created_at}}</td>
-                    <td>{{ $computador->funcionario->nombre}}</td>
+                    <td>{{ $computador->created_at->format('d-m-Y')}}</td>
+                    <td>{{ $computador->funcionario->nombre}} {{ $computador->funcionario->ap_paterno }} {{ $computador->funcionario->ap_materno }}</td>
                     <td>{{ $computador->telefono->anexo}}</td>
                     <td>{{ $computador->funcionario->unidad->nombre}}</td>
                     <td>
