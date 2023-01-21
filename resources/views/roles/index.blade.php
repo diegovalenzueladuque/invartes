@@ -14,6 +14,7 @@
           <tr>
             <th scope="col">Id</th>
             <th scope="col">Nombre</th>
+            <th scope="col">Creado</th>
             <th scope="col">Acciones</th>
            
           </tr>
@@ -24,6 +25,7 @@
                 <tr>
                     <td>{{ $rol->id }}</td>
                     <td>{{ $rol->nombre }}</td>
+                    <td>{{ $rol->created_at->format('d-m-Y-H:i:s') }}</td>
                     <td>
                         <form action="{{ route('roles.destroy', $rol->id) }}" method="POST">
                             @csrf

@@ -18,6 +18,7 @@
                 <th scope="col">Apellido Materno</th>
                 <th scope="col">Rol</th>
                 <th scope="col">Unidad</th>
+                <th scope="col">Creado</th>
                 <th scope="col">Acciones</th>
             </tr>
         </thead>
@@ -31,6 +32,7 @@
                     <td>{{ $funcionario->ap_materno}}</td>
                     <td>{{ $funcionario->rol->nombre}}</td>
                     <td>{{ $funcionario->unidad->nombre}}</td>
+                    <td>{{ $funcionario->created_at->format('d-m-Y-H:i:s') }}</td>
                     <td>
                         <form action="{{ route('funcionarios.destroy', $funcionario->id) }}" method="POST">
                             @csrf

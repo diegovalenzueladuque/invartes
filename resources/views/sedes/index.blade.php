@@ -15,6 +15,7 @@
             <th scope="col">Id</th>
             <th scope="col">Nombre</th>
             <th scope="col">Dirección</th>
+            <th scope="col">Creado</th>
             <th scope="col">Acciones</th>
           </tr>
         </thead>
@@ -25,6 +26,7 @@
                     <td>{{ $sede->id }}</td>
                     <td>{{ $sede->nombre }}</td>
                     <td>{{ $sede->direccion }}</td>
+                    <td>{{ $sede->created_at->format('d-m-Y-H:i:s') }}</td>
                     <td>
                         <form action="{{ route('sedes.destroy', $sede->id) }}" method="POST">
                             @csrf

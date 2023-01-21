@@ -16,6 +16,7 @@
             <th scope="col">Nombre</th>
             <th scope="col">Unidad</th>
             <th scope="col">Sede</th>
+            <th scope="col">Creado</th>
             <th scope="col">Acciones</th>        
            
           </tr>
@@ -28,6 +29,7 @@
                     <td>{{ $oficina->nombre }}</td>
                     <td>{{ $oficina->unidad->nombre }}</td>
                     <td>{{ $oficina->sede->nombre }}</td>
+                    <td>{{ $oficina->created_at->format('d-m-Y-H:i:s') }}</td>
                     <td>
                         <form action="{{ route('oficinas.destroy', $oficina->id) }}" method="POST">
                             @csrf

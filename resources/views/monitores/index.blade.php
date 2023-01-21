@@ -16,6 +16,7 @@
             <th scope="col">Modelo</th>
             <th scope="col">Serie</th>
             <th scope="col">Marca</th>
+            <th scope="col">Creado</th>
             <th scope="col">Acciones</th>     
            
           </tr>
@@ -28,7 +29,7 @@
                     <td>{{ $monitor->modelo }}</td>
                     <td>{{ $monitor->serie}}</td>
                     <td>{{ $monitor->marca->nombre}}</td>
-                    
+                    <td>{{ $monitor->created_at->format('d-m-Y-H:i:s') }}</td>
                     
                     <td>
                         <form action="{{ route('monitores.destroy', $monitor->id) }}" method="POST">

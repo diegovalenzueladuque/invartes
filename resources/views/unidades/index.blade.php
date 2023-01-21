@@ -14,6 +14,7 @@
           <tr>
             <th scope="col">Id</th>
             <th scope="col">Nombre</th>
+            <th scope="col">Creado</th>
             <th scope="col">Acciones</th>
             
            
@@ -25,7 +26,7 @@
                 <tr>
                     <td>{{ $unidad->id }}</td>
                     <td>{{ $unidad->nombre }}</td>
-                    
+                    <td>{{ $unidad->created_at->format('d-m-Y-H:i:s') }}</td>
                                 
                     
                     <td>

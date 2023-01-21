@@ -17,6 +17,7 @@
             <th scope="col">Serie</th>
             <th scope="col">Marca</th>
             <th scope="col">Conexión</th>
+            <th scope="col">Creado</th>
             <th scope="col">Acciones</th>     
            
           </tr>
@@ -30,7 +31,7 @@
                     <td>{{ $impresora->serie}}</td>
                     <td>{{ $impresora->marca->nombre}}</td>
                     <td>{{ $impresora->Conexion}}</td>
-                    
+                    <td>{{ $impresora->created_at->format('d-m-Y-H:i:s') }}</td>
                     <td>
                         <form action="{{ route('impresoras.destroy', $impresora->id) }}" method="POST">
                             @csrf

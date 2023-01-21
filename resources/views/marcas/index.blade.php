@@ -14,6 +14,7 @@
           <tr>
             <th scope="col">Id</th>
             <th scope="col">Nombre</th>
+            <th scope="col">Creado</th>
             <th scope="col">Acciones</th>
            
           </tr>
@@ -24,6 +25,7 @@
                 <tr>
                     <td>{{ $marca->id }}</td>
                     <td>{{ $marca->nombre }}</td>
+                    <td>{{ $marca->created_at->format('d-m-Y-H:i:s') }}</td>
                     <td>
                         <form action="{{ route('marcas.destroy', $marca->id) }}" method="POST">
                             @csrf

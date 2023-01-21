@@ -14,6 +14,7 @@
           <tr>
             <th scope="col">Id</th>
             <th scope="col">Nombre</th>
+            <th scope="col">Creado</th>
             <th scope="col">Acciones</th>
            
           </tr>
@@ -24,6 +25,7 @@
                 <tr>
                     <td>{{ $sistema->id }}</td>
                     <td>{{ $sistema->nombre }}</td>
+                    <td>{{ $sistema->created_at->format('d-m-Y-H:i:s') }}</td>
                     
                     <td>
                         <form action="{{ route('sistemas.destroy', $sistema->id) }}" method="POST">

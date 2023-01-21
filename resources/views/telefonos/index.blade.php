@@ -20,6 +20,7 @@
             <th scope="col">Mac Address</th>
             <th scope="col">IP</th>
             <th scope="col">Serie</th>
+            <th scope="col">Creado</th>
             <th scope="col">Acciones</th>
            
           </tr>
@@ -36,7 +37,7 @@
                     <td>{{ $telefono->macaddress}}</td>
                     <td>{{ $telefono->ip}}</td>
                     <td>{{ $telefono->serie}}</td>
-                    
+                    <td>{{ $telefono->created_at->format('d-m-Y-H:i:s') }}</td>
                     <td>
                         <form action="{{ route('telefonos.destroy', $telefono->id) }}" method="POST">
                             @csrf
