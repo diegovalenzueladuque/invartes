@@ -97,7 +97,7 @@
                 <select class="form-control" name="impresora_id" id="impresora_id" required>
                     <option value="">Seleccione una opción</option>
                     @foreach ($impresoras as $impresora)
-                    <option value="{{ $impresora['id'] }}">{{ $impresora->modelo }} {{ $impresora->serie }}</option>
+                    <option value="{{ $impresora['id'] }}"><b>Modelo:</b> {{ $impresora->modelo }}&nbsp; <b>Serie: </b> {{ $impresora->serie }}</option>
                         
                     @endforeach
                 </select><br>
@@ -107,7 +107,7 @@
                 <select class="form-control" name="monitor_id" id="monitor_id" required>
                     <option value="">Seleccione una opción</option>
                     @foreach ($monitores as $monitor)
-                    <option value="{{ $monitor['id'] }}">{{ $monitor->modelo }} {{ $monitor->serie }}</option>
+                    <option value="{{ $monitor['id'] }}"><b>Modelo: </b> {{ $monitor->modelo }}&nbsp; <b>Serie: </b> {{ $monitor->serie }}</option>
                         
                     @endforeach
                 </select><br>

@@ -160,10 +160,11 @@ class ComputadorController extends Controller
     public function chart(){
         $computadores = Computador::all();
         $datos = [];
+        $contxsist = Computador::withCount('sistemas')->withTrashed()->get();
 
         foreach($computadores as $computador){
-            $datos['label'][] = $computador->codigo;
-            $datos['data'][] = $computador->funcionario->Unidad->count();
+            $datos['label'][] = $computador->id->count();
+            $datos['data'][] = $computador->funcionario_id->unidad->count();
 
         }
         $datos['data'] = json_encode($datos);

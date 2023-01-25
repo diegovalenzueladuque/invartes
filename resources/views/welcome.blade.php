@@ -55,6 +55,15 @@
         datasets: [{
           label: '# of Votes',
           data: [12, 19, 3, 5, 2, 3],
+          backgroundColor:[
+            'rgb(224,13,10,0.5)',
+            'rgb(4,23,189,0.5)',
+            'rgb(243,240,7,0.5)',
+            'rgb(29,118,3,0.5)',
+            'rgb(90,4,136,0.5)',
+            'rgb(218,112,24,0.5)',
+            
+          ],
           borderWidth: 1
         }]
       },
@@ -81,6 +90,15 @@
         datasets: [{
           label: '# of Votes',
           data: [12, 19, 3, 5, 2, 3],
+          backgroundColor:[
+            'rgb(224,13,10,0.6)',
+            'rgb(4,23,189,0.6)',
+            'rgb(243,240,7,0.6)',
+            'rgb(29,118,3,0.6)',
+            'rgb(90,4,136,0.6)',
+            'rgb(218,112,24,0.6)',
+            
+          ],
           borderWidth: 1
           
         }]
@@ -106,7 +124,16 @@
         datasets: [{
           label: '# of Votes',
           data: [12, 19, 3, 5, 2, 3],
-          borderWidth: 1
+          backgroundColor:[
+            'rgb(3,3,3,0.8)',
+            'rgb(4,23,189,0.8)',
+            'rgb(243,240,7,0.8)',
+            'rgb(29,118,3,0.8)',
+            'rgb(90,4,136,0.8)',
+            'rgb(218,112,24,0.8)',
+            
+          ],
+          borderWidth: 3
         }]
       },
       options: {
@@ -118,5 +145,6 @@
       }
     });
   </script>
+  
 
 @stop
