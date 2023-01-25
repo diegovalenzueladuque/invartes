@@ -17,16 +17,16 @@ return new class extends Migration
             $table->id();
             $table->String('codigo')->unique();  
             $table->String('serie')->unique();         
-            $table->foreignId('marca_id')->constrained('marcas')->onUpdate('cascade')->onDelete('cascade');            
+            $table->foreignId('marca_id')->nullable()->constrained('marcas')->onUpdate('cascade')->onDelete('set null');            
             $table->String('cpu');
             $table->String('ram');
-            $table->foreignId('sistema_id')->constrained('sistemas')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('sistema_id')->nullable()->constrained('sistemas')->onUpdate('cascade')->onDelete('set null');
             $table->String('macaddress')->unique();
             $table->String('ip')->unique();          
-            $table->foreignId('funcionario_id')->constrained('funcionarios')->onUpdate('cascade')->onDelete('cascade');     
-            $table->foreignId('telefono_id')->constrained('telefonos')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreignId('impresora_id')->constrained('impresoras')->onUpdate('cascade')->onDelete('cascade'); 
-            $table->foreignId('monitor_id')->constrained('monitors')->onUpdate('cascade')->onDelete('cascade'); 
+            $table->foreignId('funcionario_id')->nullable()->constrained('funcionarios')->onUpdate('cascade')->onDelete('set null');     
+            $table->foreignId('telefono_id')->nullable()->constrained('telefonos')->onUpdate('cascade')->onDelete('set null');
+            $table->foreignId('impresora_id')->nullable()->constrained('impresoras')->onUpdate('cascade')->onDelete('set null'); 
+            $table->foreignId('monitor_id')->nullable()->constrained('monitors')->onUpdate('cascade')->onDelete('set null'); 
             $table->timestamps();
         });
     }

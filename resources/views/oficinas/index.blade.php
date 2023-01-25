@@ -27,8 +27,8 @@
                 <tr>
                     <td>{{ $oficina->id }}</td>
                     <td>{{ $oficina->nombre }}</td>
-                    <td>{{ $oficina->unidad->nombre }}</td>
-                    <td>{{ $oficina->sede->nombre }}</td>
+                    <td>{{ $oficina->unidad->nombre ?? ''}}</td>
+                    <td>{{ $oficina->sede->nombre ?? ''}}</td>
                     <td>{{ $oficina->created_at->format('d-m-Y-H:i:s') }}</td>
                     <td>
                         <form action="{{ route('oficinas.destroy', $oficina->id) }}" method="POST">

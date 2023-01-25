@@ -29,7 +29,7 @@
                     <td>{{ $impresora->id }}</td>
                     <td>{{ $impresora->modelo }}</td>
                     <td>{{ $impresora->serie}}</td>
-                    <td>{{ $impresora->marca->nombre}}</td>
+                    <td>{{ $impresora->marca->nombre ?? ''}}</td>
                     <td>{{ $impresora->Conexion}}</td>
                     <td>{{ $impresora->created_at->format('d-m-Y-H:i:s') }}</td>
                     <td>

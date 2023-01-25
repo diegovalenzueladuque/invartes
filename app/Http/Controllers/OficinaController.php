@@ -18,7 +18,7 @@ class OficinaController extends Controller
     public function index()
     {
         $oficinas = Oficina::with('unidad')->get();
-       return view('oficinas.index', compact('oficinas'));
+        return view('oficinas.index', compact('oficinas'));
     }
 
     /**

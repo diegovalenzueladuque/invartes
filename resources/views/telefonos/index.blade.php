@@ -31,7 +31,7 @@
                 <tr>
                     <td>{{ $telefono->id }}</td>
                     <td>{{ $telefono->anexo }}</td>
-                    <td>{{ $telefono->marca->nombre}}</td>
+                    <td>{{ $telefono->marca->nombre ?? ''}}</td>
                     <td>{{ $telefono->modelo}}</td>
                     <td>{{ $telefono->tipo}}</td>
                     <td>{{ $telefono->macaddress}}</td>

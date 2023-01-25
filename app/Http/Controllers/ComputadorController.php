@@ -10,6 +10,7 @@ use App\Models\Marca;
 use App\Models\Monitor;
 use App\Models\Sistema;
 use App\Models\Telefono;
+use App\Models\Unidad;
 use Illuminate\Http\Request;
 
 class ComputadorController extends Controller
@@ -154,5 +155,18 @@ class ComputadorController extends Controller
         $computadores = Computador::findorFail($id);
         $computadores->delete();
         return redirect('computadores')->with('Success', 'Computador Eliminado');
+    }
+
+    public function chart(){
+        $computadores = Computador::all();
+        $datos = [];
+
+        foreach($computadores as $computador){
+            $datos['label'][] = $computador->codigo;
+            $datos['data'][] = $computador->funcionario->Unidad->count();
+
+        }
+        $datos['data'] = json_encode($datos);
+        return view('/', $datos);
     }
 }

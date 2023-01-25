@@ -11,7 +11,7 @@
     <form action={{ route('impresoras.index') }} method="POST">
         @csrf
         <label for="" class="form-label">Modelo</label>
-        <input class="form-control" type="text" name="modelo" id="modelo" required><br>
+        <input class="form-control" type="text" name="modelo" id="modelo" autofocus required><br>
         <label for="" class="form-label">Serie</label>
         <input class="form-control" type="text" name="serie" id="serie" required><br>
         <label for="" class="form-label">Marca</label>

@@ -12,7 +12,7 @@
         @csrf
         @method('PUT')
         <label for="" class="form-label">Nombre</label>
-        <input class="form-control" type="text" name="nombre" id="nombre" value="{{ $funcionarios->nombre }}" required><br>
+        <input class="form-control" type="text" name="nombre" id="nombre" value="{{ $funcionarios->nombre }}" autofocus required><br>
         <label for="" class="form-label">Apellido Paterno</label>
         <input class="form-control" type="text" name="ap_paterno" id="ap_paterno" value="{{ $funcionarios->ap_paterno }}" required><br>
         <label for="" class="form-label">Apellido Materno</label>

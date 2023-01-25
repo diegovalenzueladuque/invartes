@@ -11,7 +11,7 @@
     <form action={{ route('funcionarios.index') }} method="POST">
         @csrf
         <label for="" class="form-label">Nombre</label>
-        <input class="form-control" type="text" name="nombre" id="nombre" required><br>
+        <input class="form-control" type="text" name="nombre" id="nombre" autofocus required><br>
         <label for="" class="form-label">Apellido Paterno</label>
         <input class="form-control" type="text" name="ap_paterno" id="ap_paterno" required><br>
         <label for="" class="form-label">Apellido Materno</label>

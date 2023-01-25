@@ -28,7 +28,7 @@
                     <td>{{ $monitor->id }}</td>
                     <td>{{ $monitor->modelo }}</td>
                     <td>{{ $monitor->serie}}</td>
-                    <td>{{ $monitor->marca->nombre}}</td>
+                    <td>{{ $monitor->marca->nombre ?? ''}}</td>
                     <td>{{ $monitor->created_at->format('d-m-Y-H:i:s') }}</td>
                     
                     <td>

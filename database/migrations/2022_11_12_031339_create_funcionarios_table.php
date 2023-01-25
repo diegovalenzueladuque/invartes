@@ -18,8 +18,8 @@ return new class extends Migration
             $table->String('nombre');
             $table->String('ap_paterno');
             $table->String('ap_materno');
-            $table->foreignId('rol_id')->constrained('rols')->onUpdate('cascade')->OnDelete('cascade');
-            $table->foreignId('unidad_id')->constrained('unidads')->onUpdate('cascade')->onDelete('cascade');            
+            $table->foreignId('rol_id')->nullable()->constrained('rols')->onUpdate('cascade')->onDelete('set null');
+            $table->foreignId('unidad_id')->nullable()->constrained('unidads')->onUpdate('cascade')->onDelete('set null');            
             $table->timestamps();
         });
     }

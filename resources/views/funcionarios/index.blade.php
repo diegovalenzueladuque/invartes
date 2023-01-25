@@ -30,8 +30,8 @@
                     <td>{{ $funcionario->nombre }}</td>
                     <td>{{ $funcionario->ap_paterno}}</td>
                     <td>{{ $funcionario->ap_materno}}</td>
-                    <td>{{ $funcionario->rol->nombre}}</td>
-                    <td>{{ $funcionario->unidad->nombre}}</td>
+                    <td>{{ $funcionario->rol->nombre ?? ''}}</td>
+                    <td>{{ $funcionario->unidad->nombre ?? ''}}</td>
                     <td>{{ $funcionario->created_at->format('d-m-Y-H:i:s') }}</td>
                     <td>
                         <form action="{{ route('funcionarios.destroy', $funcionario->id) }}" method="POST">
