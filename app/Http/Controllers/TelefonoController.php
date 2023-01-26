@@ -45,9 +45,9 @@ class TelefonoController extends Controller
             'marca_id' => 'required',
             'modelo' => 'required',
             'tipo' => 'required',
-            'macaddress' => 'required',
+            'macaddress' => 'required|unique:telefonos',
             'ip' => 'required',
-            'serie' => 'required',
+            'serie' => 'required|unique:telefonos',
             
         ]);
         $telefonos = new Telefono();
@@ -100,6 +100,16 @@ class TelefonoController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validated = $request->validate([
+            'anexo' => 'required',
+            'marca_id' => 'required',
+            'modelo' => 'required',
+            'tipo' => 'required',
+            'macaddress' => 'required|unique:telefonos',
+            'ip' => 'required',
+            'serie' => 'required|unique:telefonos',
+            
+        ]);
         $telefonos = Telefono::findorFail($id);
         $telefonos->anexo = $request->get('anexo');
         $telefonos->marca_id = $request->get('marca_id');

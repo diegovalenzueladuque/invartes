@@ -8,6 +8,15 @@
     <h1 class="shadow text-center rounded btn btn-outline-secondary" style="width: 18rem;">EDITAR UNIDADES</h1>
 </div><br>
 <div class="container">
+    @if ($errors->any())
+        <div class="alert alert-warning" style="width:25rem">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <form action={{ route('unidades.update', $unidades->id) }} method="POST">
         @csrf
         @method('PUT')

@@ -94,6 +94,14 @@ class FuncionarioController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validated = $request->validate([
+            'nombre' => 'required',
+            'ap_paterno' => 'required',
+            'ap_materno' => 'required',
+            'rol_id' => 'required',
+            'unidad_id' => 'required',
+
+        ]);
         $funcionario = Funcionario::findorFail($id);
         $funcionario->nombre = $request->get('nombre');
         $funcionario->ap_paterno = $request->get('ap_paterno');

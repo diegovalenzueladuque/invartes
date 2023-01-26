@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('monitors', function (Blueprint $table) {
             $table->id();
             $table->String('modelo');
-            $table->String('serie')->unique();
+            $table->String('serie');
             $table->foreignId('marca_id')->nullable()->constrained('marcas')->onUpdate('cascade')->onDelete('set null');
             $table->timestamps();
         });

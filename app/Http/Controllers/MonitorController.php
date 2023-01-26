@@ -42,9 +42,8 @@ class MonitorController extends Controller
     {
         $validated = $request->validate([
             'modelo' => 'required',
-            'serie' => 'required',
-            'marca_id' => 'required',
-            
+            'serie' => 'required|unique:monitors',
+            'marca_id' => 'required',            
 
         ]);
         $monitores = new Monitor();
@@ -90,7 +89,12 @@ class MonitorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        $validated = $request->validate([
+            'modelo' => 'required',
+            'serie' => 'required|unique:monitors',
+            'marca_id' => 'required',            
+
+        ]);
         $monitores = Monitor::findorFail($id);
         $monitores->modelo = $request->get('modelo');
         $monitores->serie = $request->get('serie');

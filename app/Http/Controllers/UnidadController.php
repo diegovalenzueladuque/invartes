@@ -40,10 +40,8 @@ class UnidadController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nombre' => 'required',
+            'nombre' => 'required',         
             
-            
-
         ]);
         $unidad = new Unidad();
         $unidad->nombre = $request->get('nombre');
@@ -89,6 +87,10 @@ class UnidadController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validated = $request->validate([
+            'nombre' => 'required',         
+            
+        ]);
         $unidad = Unidad::findorFail($id);
         $unidad->nombre = $request->input('nombre');
         

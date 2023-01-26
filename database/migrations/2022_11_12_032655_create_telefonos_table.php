@@ -19,9 +19,9 @@ return new class extends Migration
             $table->foreignId('marca_id')->nullable()->constrained('marcas')->onUpdate('cascade')->onDelete('set null');           
             $table->String('modelo')->nullable();
             $table->enum('tipo',['ANÁLOGO', 'IP']);
-            $table->String('macaddress')->nullable()->unique();
+            $table->String('macaddress')->nullable();
             $table->String('ip')->nullable();
-            $table->String('serie')->unique();
+            $table->String('serie');
             $table->timestamps();
         });
     }

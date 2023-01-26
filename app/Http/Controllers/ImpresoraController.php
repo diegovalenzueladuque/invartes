@@ -41,10 +41,9 @@ class ImpresoraController extends Controller
     {
         $validated = $request->validate([
             'modelo' => 'required',
-            'serie' => 'required',
+            'serie' => 'required|unique:impresoras',
             'marca_id' => 'required',
-            'Conexion' => 'required',
-
+            'Conexion' => 'required',    
         ]);
         $impresoras = new Impresora();
         $impresoras->modelo = $request->get('modelo');
@@ -91,7 +90,13 @@ class ImpresoraController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $impresoras = Impresora::findorFail($id);
+        
+        $validated = $request->validate([
+            'modelo' => 'required',
+            'serie' => 'required|unique:impresoras',
+            'marca_id' => 'required',
+            'Conexion' => 'required',    
+        ]);$impresoras = Impresora::findorFail($id);
         $impresoras->modelo = $request->input('modelo');
         $impresoras->serie = $request->get('serie');
         $impresoras->marca_id = $request->get('marca_id');

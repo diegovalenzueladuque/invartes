@@ -83,6 +83,11 @@ class SedeController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validated = $request->validate([
+            'nombre' => 'required',
+            'direccion' => 'required',
+
+        ]);
         $sede = Sede::findorFail($id);
         $sede->nombre = $request->input('nombre');
         $sede->direccion = $request->input('direccion');

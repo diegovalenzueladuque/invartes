@@ -92,6 +92,12 @@ class OficinaController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validated = $request->validate([
+            'nombre' => 'required',
+            'unidad_id' => 'required',
+            'sede_id' => 'required',
+
+        ]);
         $oficinas = Oficina::findorFail($id);
         $oficinas->nombre = $request->input('nombre');
         $oficinas->unidad_id = $request->get('unidad_id');

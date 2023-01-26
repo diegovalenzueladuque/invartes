@@ -55,12 +55,12 @@ class ComputadorController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'codigo' => 'required',
-            'serie' => 'required',
+            'codigo' => 'required|unique:computadors',
+            'serie' => 'required|unique:computadors',
             'cpu' => 'required',
             'ram' => 'required',
             'sistema_id' => 'required',
-            'macaddress' => 'required',
+            'macaddress' => 'required|unique:computadors',
             'ip' => 'required',
             'marca_id' => 'required',
             'funcionario_id' => 'required',
@@ -125,6 +125,20 @@ class ComputadorController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validated = $request->validate([
+            'codigo' => 'required|unique:computadors',
+            'serie' => 'required|unique:computadors',
+            'cpu' => 'required',
+            'ram' => 'required',
+            'sistema_id' => 'required',
+            'macaddress' => 'required|unique:computadors',
+            'ip' => 'required',
+            'marca_id' => 'required',
+            'funcionario_id' => 'required',
+            'telefono_id' => 'required',
+            'impresora_id' => 'required',
+            'monitor_id' => 'required',
+        ]);
         $computadores = Computador::findorFail($id);
         $computadores->codigo = $request->get('codigo');
         $computadores->serie = $request->get('serie');

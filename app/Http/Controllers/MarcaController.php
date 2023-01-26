@@ -83,6 +83,10 @@ class MarcaController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validated = $request->validate([
+            'nombre' => 'required',
+
+        ]);
         $marcas = Marca::findorFail($id);
         $marcas->nombre = $request->input('nombre');
         

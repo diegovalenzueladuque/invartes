@@ -84,7 +84,10 @@ class RolController extends Controller
      */
     public function update(Request $request, $id)
     {
-       
+        $validated = $request->validate([
+            'nombre' => 'required',
+
+        ]);
         $rol = Rol::findorFail($id);
         $rol->nombre = $request->input('nombre');
         

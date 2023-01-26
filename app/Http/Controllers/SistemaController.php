@@ -82,6 +82,10 @@ class SistemaController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validated = $request->validate([
+            'nombre' => 'required',
+
+        ]);
         $sistemas = Sistema::findorFail($id);
         $sistemas->nombre = $request->input('nombre');
         
