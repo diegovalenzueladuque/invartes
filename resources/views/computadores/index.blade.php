@@ -7,7 +7,7 @@
 <div class="container-fluid">
     <h1 class="shadow text-center rounded btn btn-outline-secondary" style="width: 18rem;">COMPUTADORES</h1>
 </div><br>
-<div class="container">
+<div class="container-fluid">
     <a href="{{ route('computadores.create') }}" class="btn btn-outline-primary">CREAR</a><br><br>
     <table class="table table-hover">
         <thead>
@@ -43,6 +43,7 @@
                         <form action="{{ route('computadores.destroy', $computador->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
+                            <a href="{{ route ('computadores.show',$computador->id) }}" class="btn btn-outline-primary"><i class="fa fa-eye"></i>&nbsp;VER</a>&nbsp;&nbsp;
                             <a href="/computadores/{{ $computador->id }}/edit" class="btn btn-outline-info"><i class="fas fa-pen"></i>&nbsp;EDITAR</a>&nbsp;&nbsp;
                             
                             

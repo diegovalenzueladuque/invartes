@@ -173,9 +173,9 @@ return [
     'classes_auth_footer' => '',
     'classes_auth_icon' => '',
     'classes_auth_btn' => 'btn-flat btn-primary',*/
-    'classes_auth_card' => 'bg-gradient-dark',
-    'classes_auth_header' => 'bg-gradient-dark',
-    'classes_auth_body' => 'bg-gradient-dark',
+    'classes_auth_card' => 'bg-gradient-light',
+    'classes_auth_header' => 'bg-gradient-secondary',
+    'classes_auth_body' => 'bg-gradient-secondary',
     'classes_auth_footer' => 'text-center ',
     'classes_auth_icon' => 'fa-fw text-light',
     'classes_auth_btn' => 'btn-flat btn-light',

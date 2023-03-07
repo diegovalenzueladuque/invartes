@@ -10,6 +10,7 @@ use App\Http\Controllers\SedeController;
 use App\Http\Controllers\SistemaController;
 use App\Http\Controllers\UnidadController;
 use App\Http\Controllers\TelefonoController;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\HttpKernel\Fragment\RoutableFragmentRenderer;
 

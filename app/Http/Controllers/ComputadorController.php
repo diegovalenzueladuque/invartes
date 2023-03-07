@@ -11,7 +11,10 @@ use App\Models\Monitor;
 use App\Models\Sistema;
 use App\Models\Telefono;
 use App\Models\Unidad;
+
+use PDF;
 use Illuminate\Http\Request;
+
 
 class ComputadorController extends Controller
 {
@@ -95,7 +98,14 @@ class ComputadorController extends Controller
      */
     public function show($id)
     {
-        //
+        $computadores = Computador::findorFail($id);
+        $sistemas = Sistema::all();
+        $marcas = Marca::all();
+        $telefonos = Telefono::all();
+        $funcionarios = Funcionario::all();
+        $impresoras = Impresora::all();
+        $monitores = Monitor::all();
+        return view('computadores.show', compact('computadores', 'sistemas', 'marcas', 'telefonos', 'funcionarios', 'impresoras', 'monitores'));
     }
 
     /**
@@ -184,4 +194,6 @@ class ComputadorController extends Controller
         $datos['data'] = json_encode($datos);
         return view('/', $datos);
     }
+
+   
 }
