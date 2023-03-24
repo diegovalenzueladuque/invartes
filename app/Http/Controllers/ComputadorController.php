@@ -196,4 +196,6 @@ class ComputadorController extends Controller
     }
 
    
+
+   
 }
