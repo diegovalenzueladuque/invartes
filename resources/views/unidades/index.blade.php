@@ -8,7 +8,7 @@
     <h1 class="shadow text-center rounded btn btn-outline-secondary" style="width: 18rem;">UNIDADES</h1>
 </div><br>
 <div class="container">
-    <a href="{{ route('unidades.create') }}" class="btn btn-outline-primary">CREAR</a><br><br>
+    <a href="{{ route('unidades.create') }}" class="btn btn-outline-primary"><i class="fas fa-user-plus"></i>&nbsp;CREAR</a><br><br>
     <table class="table table-hover">
         <thead>
           <tr>

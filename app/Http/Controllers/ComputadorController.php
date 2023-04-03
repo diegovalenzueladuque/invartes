@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Computador;
-
+use Illuminate\Support\Facades\DB;
 use App\Models\Funcionario;
 use App\Models\Impresora;
 use App\Models\Marca;
@@ -11,8 +11,7 @@ use App\Models\Monitor;
 use App\Models\Sistema;
 use App\Models\Telefono;
 use App\Models\Unidad;
-
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf as PDF;
 use Illuminate\Http\Request;
 
 
@@ -193,6 +192,28 @@ class ComputadorController extends Controller
         }
         $datos['data'] = json_encode($datos);
         return view('/', $datos);
+    }
+
+    public function generarpdf(){
+        $computadores = DB::table('computadors')
+        ->join('funcionarios', 'computadors.funcionario_id', '=', 'funcionarios.id')
+        ->join('sistemas', 'computadors.sistema_id', '=', 'sistemas.id' )
+        ->join('unidads', 'funcionarios.unidad_id', '=', 'unidads.id')
+        ->join('marcas', 'computadors.marca_id', '=', 'marcas.id')
+        ->select('codigo as Etiqueta', 'marcas.nombre as Marca', 'cpu as Procesador', 'ram as Memoria',  'sistemas.nombre as Sistema', 'unidads.nombre as Unidad')
+        ->orderBy('computadors.id')
+        ->get();
+        
+                    
+        $pdf = PDF::loadView('/computadores.pdf', compact('computadores'));
+        return $pdf->stream('reporte.pdf');
+        //dd($computadores);
+        /*return response()->streamDownload(
+            fn() => print($pdf),
+            'reporte.pdf'
+        );*/
+
+        
     }
 
    

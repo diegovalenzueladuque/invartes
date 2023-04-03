@@ -45,4 +45,4 @@ Route::resource('impresoras', ImpresoraController::class)->middleware('auth');
 Route::resource('telefonos', TelefonoController::class)->middleware('auth');
 Route::resource('computadores', ComputadorController::class)->middleware('auth');
 Route::resource('monitores', MonitorController::class)->middleware('auth');
-Route::get('reporte-pdf', [PdfController::class, 'generarpdf'])->middleware('auth');
+Route::get('reporte-pdf', [ComputadorController::class, 'generarpdf'])->middleware('auth');

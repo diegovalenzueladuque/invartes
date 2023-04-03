@@ -1,8 +1,3 @@
-@extends('adminlte::page')
-
-@section('title', 'Mostrar Computador')
-
-@section('content_header')
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,28 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js"></script>
     <title>Document</title>
 </head>
 <body>
-    <h1>REPORTE COMPUTADORES</h1>
-    <table>
-        <tr>
-            <th>ETIQUETA</th>
-            <th>MARCA</th>
-            <th>CPU</th>
-            <th>MEMORIA</th>
-            <th>FUNCIONARIO</th>
-            <th>UNIDAD</th>
+    <div><h1 style="text-align:center; color:#08315e; font-size: 2rem; border:solid black 1px; border-radius: 6px;">REPORTE COMPUTADORES</h1></div><br><br>
+    <table class="table table-hover">
+        <tr style="border-radius: 8px">
+            <th style="text-align:center; color:#08315e; font-size: 1,5rem; border:solid black 1px; ">ETIQUETA</th>
+            <th style="text-align:center; color:#08315e; font-size: 1,5rem; border:solid black 1px; ">MARCA</th>
+            <th style="text-align:center; color:#08315e; font-size: 1,5rem; border:solid black 1px; ">CPU</th>
+            <th style="text-align:center; color:#08315e; font-size: 1,5rem; border:solid black 1px; ">MEMORIA</th>            
+            <th style="text-align:center; color:#08315e; font-size: 1,5rem; border:solid black 1px; ">SIST. OPERATIVO</th>
+            <th style="text-align:center; color:#08315e; font-size: 1,5rem; border:solid black 1px; ">UNIDAD</th>
 
         </tr>
         @foreach ($computadores as $computador )
         <tr>
-            <td>{{ $computador->codigo }}</td>
-            <td>{{ $computador->marcas->nombre }}</td>
-            <td>{{ $computador->cpu }}</td>
-            <td>{{ $computador->ram }}</td>
-            <td>{{ $computador->funcionarios->nombre }}</td>
-            <td>{{ $computador->funcionarios->unidad->nombre }}</td>
+            <td style="text-align:center; color:#000; font-size: 1rem; border:solid black 1px; ">{{ $computador->Etiqueta }}</td>
+            <td style="text-align:center; color:#000; font-size: 1rem; border:solid black 1px; ">{{ $computador->Marca }}</td>
+            <td style="text-align:center; color:#000; font-size: 1rem; border:solid black 1px; ">{{ $computador->Procesador }}</td>
+            <td style="text-align:center; color:#000; font-size: 1rem; border:solid black 1px; ">{{ $computador->Memoria}}</td>            
+            <td style="text-align:center; color:#000; font-size: 1rem; border:solid black 1px; ">{{ $computador->Sistema }}</td>
+            <td style="text-align:center; color:#000; font-size: 1rem; border:solid black 1px; ">{{ $computador->Unidad }}</td>
         </tr>
         @endforeach
         
@@ -40,4 +38,3 @@
 </html>
 
     
-@stop
