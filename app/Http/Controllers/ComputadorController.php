@@ -13,7 +13,8 @@ use App\Models\Telefono;
 use App\Models\Unidad;
 use Barryvdh\DomPDF\Facade\Pdf as PDF;
 use Illuminate\Http\Request;
-
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ComputadorsExport;
 
 class ComputadorController extends Controller
 {
@@ -206,7 +207,7 @@ class ComputadorController extends Controller
         
                     
         $pdf = PDF::loadView('/computadores.pdf', compact('computadores'));
-        return $pdf->stream('reporte.pdf');
+        return $pdf->download('reporte.pdf');
         //dd($computadores);
         /*return response()->streamDownload(
             fn() => print($pdf),
@@ -214,6 +215,10 @@ class ComputadorController extends Controller
         );*/
 
         
+    }
+
+    public function exportExcel(){
+        return Excel::download(new ComputadorsExport, 'computadores.xlsx');
     }
 
    

@@ -46,3 +46,4 @@ Route::resource('telefonos', TelefonoController::class)->middleware('auth');
 Route::resource('computadores', ComputadorController::class)->middleware('auth');
 Route::resource('monitores', MonitorController::class)->middleware('auth');
 Route::get('reporte-pdf', [ComputadorController::class, 'generarpdf'])->middleware('auth');
+Route::get('reporte-excel',[ComputadorController::class, 'exportExcel']);

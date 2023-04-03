@@ -10,7 +10,7 @@
 <div class="container-fluid">
     <a href="{{ route('computadores.create') }}" class="btn btn-outline-primary"><i class="fas fa-user-plus"></i>&nbsp;CREAR</a>&nbsp;&nbsp;
     <a href="/reporte-pdf " class="btn btn-outline-info" target="_blank"><i class="fas fa-file-pdf"></i>&nbsp;REPORTE PDF</a>&nbsp;&nbsp;
-    <a href="/reporte-pdf " class="btn btn-outline-info"><i class="fas fa-file-excel"></i>&nbsp;REPORTE EXCEL</a><br><br>
+    <a href="/reporte-excel " class="btn btn-outline-info"><i class="fas fa-file-excel"></i>&nbsp;REPORTE EXCEL</a><br><br>
     
     <table class="table table-hover">
         <thead>
