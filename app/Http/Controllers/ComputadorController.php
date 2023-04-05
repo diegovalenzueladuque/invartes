@@ -182,7 +182,14 @@ class ComputadorController extends Controller
     }
 
     public function chart(){
-        $computadores = Computador::all();
+        $computadores = DB::table('computadors')
+        ->join('funcionarios', 'computadors.funcionario_id', '=', 'funcionarios.id')
+        ->join('sistemas', 'computadors.sistema_id', '=', 'sistemas.id' )
+        ->join('unidads', 'funcionarios.unidad_id', '=', 'unidads.id')
+        ->join('marcas', 'computadors.marca_id', '=', 'marcas.id')
+        ->select('codigo as Etiqueta', 'marcas.nombre as Marca', 'cpu as Procesador', 'ram as Memoria',  'sistemas.nombre as Sistema', 'unidads.nombre as Unidad')
+        ->orderBy('computadors.id')
+        ->get();
         $datos = [];
         $contxsist = Computador::withCount('sistemas')->withTrashed()->get();
 
@@ -201,7 +208,7 @@ class ComputadorController extends Controller
         ->join('sistemas', 'computadors.sistema_id', '=', 'sistemas.id' )
         ->join('unidads', 'funcionarios.unidad_id', '=', 'unidads.id')
         ->join('marcas', 'computadors.marca_id', '=', 'marcas.id')
-        ->select('codigo as Etiqueta', 'marcas.nombre as Marca', 'cpu as Procesador', 'ram as Memoria',  'sistemas.nombre as Sistema', 'unidads.nombre as Unidad')
+        ->select('codigo as Etiqueta', 'marcas.nombre as Marca', 'cpu as Procesador', 'ram as Memoria',  'sistemas.nombre as Sistema', 'funcionarios.nombre as Nombre', 'funcionarios.ap_paterno as Apellido', 'unidads.nombre as Unidad')
         ->orderBy('computadors.id')
         ->get();
         

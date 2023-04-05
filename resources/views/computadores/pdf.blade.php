@@ -20,6 +20,8 @@
             <th style="text-align:center; color:#000; font-size: 1,5rem; border:solid black 1px; background-color:#b3b3b4; font-weight: bold; ">CPU</th>
             <th style="text-align:center; color:#000; font-size: 1,5rem; border:solid black 1px; background-color:#b3b3b4; font-weight: bold; ">MEMORIA</th>            
             <th style="text-align:center; color:#000; font-size: 1,5rem; border:solid black 1px; background-color:#b3b3b4; font-weight: bold; ">SIST. OPERATIVO</th>
+            <th style="text-align:center; color:#000; font-size: 1,5rem; border:solid black 1px; background-color:#b3b3b4; font-weight: bold; ">NOMBRE</th>
+            <th style="text-align:center; color:#000; font-size: 1,5rem; border:solid black 1px; background-color:#b3b3b4; font-weight: bold; ">APELLIDO</th>
             <th style="text-align:center; color:#000; font-size: 1,5rem; border:solid black 1px; background-color:#b3b3b4; font-weight: bold; ">UNIDAD</th>
 
         </tr>
@@ -30,6 +32,8 @@
             <td style="text-align:center; color:#000; font-size: 1rem; border:solid black 1px; ">{{ $computador->Procesador }}</td>
             <td style="text-align:center; color:#000; font-size: 1rem; border:solid black 1px; ">{{ $computador->Memoria}}</td>            
             <td style="text-align:center; color:#000; font-size: 1rem; border:solid black 1px; ">{{ $computador->Sistema }}</td>
+            <td style="text-align:center; color:#000; font-size: 1rem; border:solid black 1px; ">{{ $computador->Nombre }}</td>
+            <td style="text-align:center; color:#000; font-size: 1rem; border:solid black 1px; ">{{ $computador->Apellido }}</td>
             <td style="text-align:center; color:#000; font-size: 1rem; border:solid black 1px; ">{{ $computador->Unidad }}</td>
         </tr>
         @endforeach
