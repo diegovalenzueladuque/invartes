@@ -136,12 +136,12 @@ class ComputadorController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'codigo' => 'required|unique:computadors',
-            'serie' => 'required|unique:computadors',
+            'codigo' => 'required',
+            'serie' => 'required',
             'cpu' => 'required',
             'ram' => 'required',
             'sistema_id' => 'required',
-            'macaddress' => 'required|unique:computadors',
+            'macaddress' => 'required',
             'ip' => 'required',
             'marca_id' => 'required',
             'funcionario_id' => 'required',

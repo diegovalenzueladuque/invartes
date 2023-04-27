@@ -93,7 +93,7 @@ class ImpresoraController extends Controller
         
         $validated = $request->validate([
             'modelo' => 'required',
-            'serie' => 'required|unique:impresoras',
+            'serie' => 'required',
             'marca_id' => 'required',
             'Conexion' => 'required',    
         ]);$impresoras = Impresora::findorFail($id);

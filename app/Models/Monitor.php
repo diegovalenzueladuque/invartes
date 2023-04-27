@@ -11,7 +11,7 @@ class Monitor extends Model
     protected $fillable = ['modelo', 'serie', 'marca_id'];
 
     public function marca(){
-        return $this->belongsTo(Marca::class, 'id');
+        return $this->belongsTo(Marca::class);
     }
     public function computadores(){
         return $this->hasMany(Computador::class);

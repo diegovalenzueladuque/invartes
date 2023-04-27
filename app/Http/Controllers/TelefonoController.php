@@ -105,9 +105,9 @@ class TelefonoController extends Controller
             'marca_id' => 'required',
             'modelo' => 'required',
             'tipo' => 'required',
-            'macaddress' => 'required|unique:telefonos',
+            'macaddress' => 'required',
             'ip' => 'required',
-            'serie' => 'required|unique:telefonos',
+            'serie' => 'required',
             
         ]);
         $telefonos = Telefono::findorFail($id);

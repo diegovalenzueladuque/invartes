@@ -91,7 +91,7 @@ class MonitorController extends Controller
     {
         $validated = $request->validate([
             'modelo' => 'required',
-            'serie' => 'required|unique:monitors',
+            'serie' => 'required',
             'marca_id' => 'required',            
 
         ]);
